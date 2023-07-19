@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form & Input tag</title>
+</head>
+<body>
+    <h1>폼 태그 종류에 대해 알아보자.</h1>
+
+    <!-- form tag : 사용자로부터 입력받는 요소 (input, select, textarea)들을 감싸는 태그.
+    화면에는 드러나지 않는 추상적인 태그 양식. 
+    form tag의 attribute 중 action, method가 있는데, "서버"와 연관된 내용에 해당함.-->
+    <form>
+        <!-- 모든 input type에는 "name" attribute를 가질 수 있음 ("서버")  -->
+        text <input type="text">
+        Text2 <input type="text" disabled>
+        <br>
+        <!-- 웹 접근성에 적합 -->
+        <label for="user-email">이메일</label>
+        <input type="email" id="user-email" placeholder="ex@gmail.com">
+
+
+        <br>
+        <!-- textarea : 여러줄을 입력받는 요소
+        -cols, rows : 초기의 가로, 세로 길이를 나타냄
+        초기 설정 크기가 정해져 있더라도 웹에서 마우스로 area 크기를 조절 가능함. -->
+        <textarea cols="10" rows="3" placeholder="문의사항을 입력해주세요"></textarea>
+
+
+        <br>
+        <input type="color">
+        <input type="range">
+        <input type="file">
+        <input type="number">
+        <input type="date">
+        <input type="datetime-local">
+
+        <br>
+        <!-- checkbox, radio 는 같은 name 속성값을 부여해 카테고리화를 해주어야 함. -->
+        <!-- checked attribute : 체크되어 있는 설정이 default -->
+        <h5>당신의 취미는?</h5>
+        <input type="checkbox" name="interest" value="badminton">배드민턴
+        <input type="checkbox" name="interest" value="basketball">농구
+        <input type="checkbox" name="interest" value="movie">영화보기
+        <input type="checkbox" name="interest" value="lay_down">누워있기
+
+        <h5>당신의 성별은?</h5>
+        <input type="radio" name="gender" value="M" id="genderM"><label for="genderM">남자</label>
+        <input type="radio" name="gender" value="F" id="genderF"><label for="genderF">여자</label>
+
+        <br>
+        <input type="button" value="버튼1">
+        <button type="button">버튼2</button>
+
+        <br>
+        <input type="submit" value="제출1">
+        <button type="submit">제출2</button>
+
+        <br>
+        <select name="flower">
+            <optgroup label="red-flower">
+                <option value="a">장미</option>
+                <option value="b">동백꽃</option>
+                <option value="c" selected>몰라</option>
+            </optgroup>
+            <optgroup label="white-flower">
+                <option value="a">벚꽃</option>
+                <option value="b">목련</option>
+                <option value="c">매화</option>
+            </optgroup>
+        </select>
+    </form>
+</body>
+</html>
