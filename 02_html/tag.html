@@ -1,0 +1,92 @@
+<!-- emmet: 키워드로 html 구조 잡아주는 것 -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag 종류</title>
+</head>
+<body>
+    <h1>Tag의 종류에 대해 배워보자!</h1>
+    <h2>제목2</h2>
+    <h3>제목3</h3>
+    <h4>제목4</h4>
+    <h5>제목5</h5>
+    <p>본문태그입니다!</p>
+    <br> 
+    <br> 
+    <br> 
+    <p>본문태그입니다!</p>
+
+    <h3>오늘의 할 일</h3>
+    <ul type="square">
+        <li>html 공부하기</li>
+        <li>운동하기</li>
+        <li>방 청소하기</li>
+    </ul>
+
+    <h3>운동 순서</h3>
+    <!-- ol tag type attibute : 1, a, A, i, I -->
+    <!-- start attr : 시작 번호, reverse : 역순으로 나열 -->
+    <ol type="1" start="4">
+        <li><strong>스트레칭</strong></li>
+        <li><em>등</em> 운동</li>
+        <li><b>이두</b> 운동</li>
+        <li><i>하체</i> 운동 <u>중</u> <del>1종류</del></li>
+    </ol>
+
+    <!-- 수평줄 태그 -->
+    <hr>
+
+
+    <!-- 목록 태그의 중첩 사용 -->
+    <h3>내가 좋아하는 음식</h3>
+    <ul>
+        <li>
+            양식
+            <ul>
+                <li>수제버거</li>
+                <li>파스타</li>
+            </ul>
+        </li>
+        <li>
+            한식
+            <ul>
+                <li>된장찌개</li>
+                <li>청국장</li>
+            </ul>
+        </li>
+            
+        <li>
+            일식
+            <ul>
+                <li>초밥</li>
+                <li>우동</li>
+            </ul>
+        </li>
+           
+    </ul>
+
+
+    <hr>
+
+    <h1>img & a tag</h1>
+    <!-- 상대경로 / 절대경로 
+    . : 현재(html이 있는) 위치
+    .. : (html이 현재 있는 위치의) 부모 위치
+    절대경로는 root부터 시작하는 경로
+    상대경로가 절대적으로 효율적.   -->
+    <img src="./img/96478_80014_5020.jpeg" alt="짱구" width="500">
+    <img src="C:\Users\user\Desktop\github\sesac-ydp-5\02_html\img\96478_80014_5020.jpeg" alt="짱구" width="500">
+
+    <!-- 인터넷 주소로 이미지 경로 설정 (이미지 주소 복사) -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKg97ygCs-w7D-QQIMCAMwrA2VI1i4bVLqqw&usqp=CAU" alt="잔망루피" width="500">
+
+    <br>
+    <hr>
+    <a href="https://www.naver.com/" target="_blank">naver로 이동하기</a>
+    <a href="https://www.google.com/" target="_blank" title="구글로 갈래?">google로 이동하기</a>
+    <a href="./html-start.html" target="_blank">html_start로 이동!</a>
+</body>
+</html>
