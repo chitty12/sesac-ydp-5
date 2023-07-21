@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 100px;
+}
+
+
+
+.position-static {
+    background-color: pink;
+    /* static은 default 값이므로, 당연히
+    - inline 요소 : 왼 -> 오 쌓임
+    - block 요소 : 위 -> 아래 쌓임 */
+}
+
+.position-relative {
+    background-color: aquamarine;
+    position: relative;
+    left: 100px;
+    /* top, bottom, left, right 중 하나 이상 작성해야 함. "원래 있어야 하는 위치"를 기준으로
+    top, bottom, left, right 만큼 움직임. */
+}
+
+.position-absolute {
+    background-color: gold;
+    position: absolute;
+    left: 100px;
+    top: 50px;
+    /* position 속성을 갖는 제일 가까운 조상 기준. 만약 position 속성을 갖는 조상이 없으면
+    body 기준. "특정" 요소를 기준으로 top, bottom, left, right 만큼 움직임. */
+}
+
+.position-fixed {
+    background-color: coral;
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    /* viewport (브라우저 화면 전체)를 기준으로 특정 위치 배치
+    스크롤 되어도 움직이지 않는다. body에 대한 absolute와의 차이 */
+}

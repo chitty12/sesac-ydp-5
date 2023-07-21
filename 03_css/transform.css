@@ -1,0 +1,35 @@
+img {
+    transform: skew(20deg, 10deg);
+    width: 60%;
+    height: 60%;
+}
+
+.beach1 {
+    width: 500px;
+    height: 300px;
+
+    position: absolute;
+    top: 200px;
+    left: 70px;
+    z-index: 3;
+}
+
+.beach2 {
+    width: 500px;
+    height: 300px;
+
+    position: absolute;
+    top: 140px;
+    left: 170px;
+    z-index: 2;
+}
+
+.beach3 {
+    width: 500px;
+    height: 300px;
+
+    position: absolute;
+    top: 80px;
+    left: 270px;
+    z-index: 1;
+}

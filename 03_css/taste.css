@@ -1,0 +1,42 @@
+#a {
+    
+    background-color: red;
+    width: 50px;
+    height: 20px;
+}
+
+#b {
+    background-color: orange;
+    width: 100px;
+    height: 20px;
+}
+
+#c {
+    background-color: yellow;
+    width: 150px;
+    height: 20px;
+}
+
+#d {
+    background-color: green;
+    width: 200px;
+    height: 20px;
+}
+
+#e {
+    background-color: blue;
+    width: 250px;
+    height: 20px;
+}
+
+#f {
+    background-color: darkblue;
+    width: 300px;
+    height: 20px;
+}
+
+#g {
+    background-color: purple;
+    width: 350px;
+    height: 20px;
+}
