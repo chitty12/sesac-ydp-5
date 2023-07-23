@@ -12,11 +12,11 @@
 
 /* height, width를 설정하는 순간 넘치는 경우를 무조건 생각해야 한다. */
 
-.box { 
+.box {
     background-color: skyblue;
     width: 400px;
     height: 100px;
-    
+
     /* overflow: visible; */
     /* overflow: hidden; */
     /* overflow: scroll; */
@@ -28,4 +28,3 @@
     /* overflow-y: auto; */
 
 }
-

@@ -1,68 +1,70 @@
-.head{
-    background-color: blue;
+body div {
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    z-index: 4;
 }
-.eye1{
+
+
+.head {
+    background-color: blue;
+    z-index: 4;
+    position: relative;
+    top: 10px;
+    left: 5px;
+}
+
+.eye1 {
     background-color: white;
     position: absolute;
     left: 30px;
-    top: 50px;
-    border-radius: 50%;
+    top: 10px;
     width: 50px;
     height: 50px;
 }
-.eye2{
+
+.eye2 {
     background-color: black;
     position: absolute;
-    left: 0px;
     top: 5px;
-    border-radius: 50%;
     width: 30px;
     height: 30px;
-    
+
 }
 
-.b1{
+
+.allbody {
+    position: relative;
+    bottom: 60px;
+    left: 60px;
+}
+
+.b1 {
     background-color: rgb(19, 19, 66);
     position: absolute;
-    top: 100px;
-    left: 70px;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
     z-index: 6;
 }
-.b2{
+
+.b2 {
     background-color: rgb(128, 128, 204);
-    border-radius: 50%;
-    top: 120px;
-    left: 120px;
     position: absolute;
-    width: 150px;
-    height: 150px;
+    top: 5px;
+    left: 45px;
     z-index: 7;
 }
-.b3{
+
+.b3 {
     background-color: rgb(52, 52, 63);
     position: absolute;
-    top: 140px;
-    left: 190px;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    top: 30px;
+    left: 100px;
     z-index: 8;
 }
-.b4{
+
+.b4 {
     background-color: rgb(88, 151, 180);
     position: absolute;
-    top: 170px;
-    left: 270px;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    top: 40px;
+    left: 180px;
     z-index: 10;
 }
 
