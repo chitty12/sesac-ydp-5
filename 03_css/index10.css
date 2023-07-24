@@ -1,0 +1,59 @@
+.d-inline1 {
+    background-color: blue;
+    display: inline;
+    
+}
+.d-inline2 {
+    background-color: red;
+    display: inline;
+}
+
+
+.d-block1 {
+    display: block;
+    background-color: blue;
+    width: 500px;
+}
+
+.d-block2 {
+    display: block;
+    background-color: red;
+    width: 600px;
+}
+
+
+.d-inline-block1 {
+    display: inline-block;
+    background-color: blue;
+}
+
+.d-inline-block2 {
+    display: inline-block;
+    background-color: red;
+    width: 200px;
+    height: 300px;
+    /* margin: 20px; */
+    text-align: center;
+    /* margin: 20px 40px 20px 40px;
+    의 단축 프로퍼티 */
+    margin: 20px 40px;
+
+}
+
+
+.d-none {
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    display: none;
+    /* 요소가 차지하는 공간도 사라진다 */
+}
+
+
+.box {
+    visibility: hidden;
+    background-color: violet;
+    width: 100px;
+    height: 100px;
+    /* 공간은 그대로 남는다. */
+}
