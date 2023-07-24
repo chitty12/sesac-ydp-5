@@ -1,0 +1,24 @@
+div {
+    position: relative;
+    width: 100%;
+    font-size: 15px;    
+    overflow: visible;
+    animation-name: poem;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    
+}
+
+
+@keyframes poem {
+    to {
+        left: 0%;
+        width: 100%;
+
+    }
+    from {
+        left: 100%;
+        width: 300%;
+    }
+    
+}
