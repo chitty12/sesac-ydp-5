@@ -1,5 +1,5 @@
 ul {
-    /* ul 태그가 기본적으로 가지고 있는 스타일을 없앰 */
+    /* ul 태그가 기본적으로 가지고 있는 스타일을 없앰  */
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -19,7 +19,7 @@ header {
 .header1 {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .header1 .menus {
@@ -30,20 +30,22 @@ header {
     margin-left: 20px;
 }
 
-
-
-
 .header2 {
-    display: flex;
-    align-items: center;
-    text-align: center;
+    position: relative;
+    /* display: flex; */
+    /* align-items: center; */
+    /* text-align: center; */
     /* line-height: 50px; */
 }
 
 .header2 .menus {
     display: flex;
-    /* width: 100%; */
+    width: 100%;
     justify-content: space-between;
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
 }
 
 
