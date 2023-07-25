@@ -8,6 +8,8 @@ ul {
 
 header {
     background-color: gray;
+    font-weight: 900;
+    font-size: large;
     height: 50px;
     margin-bottom: 50px;
     padding: 0 20px;
@@ -21,7 +23,7 @@ header {
 }
 
 .header1 .menus {
-    display: flex;    
+    display: flex;
 }
 
 .header1 .menus li {
@@ -34,11 +36,13 @@ header {
 .header2 {
     display: flex;
     align-items: center;
+    text-align: center;
+    /* line-height: 50px; */
 }
 
 .header2 .menus {
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     justify-content: space-between;
 }
 
@@ -61,23 +65,34 @@ header {
 
 .header3 {
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header3 .menu-left {
-    display: flex;    
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .header3 .menu-left ul {
-    display: flex;    
-    padding-right: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
 }
 
 .header3 .menu-left ul li {
-    padding-right: 10px;
+    padding-left: 20px;
 }
 
-.menu-right {
+.header3 .menu-right {
     display: flex;
-    
+    justify-content: space-evenly;
+}
+
+.header3 .menu-right {
+    display: flex;
+}
+
+.header3 .menu-right li {
+    padding-left: 20px;
 }
