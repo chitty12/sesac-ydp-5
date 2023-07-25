@@ -73,13 +73,13 @@ header {
 
 .header3 .menu-left {
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
 }
 
 .header3 .menu-left ul {
     display: flex;
-    width: 100%;
-    justify-content: space-around;
+    /* width: 100%; */
+    /* justify-content: space-around; */
 }
 
 .header3 .menu-left ul li {
@@ -88,11 +88,7 @@ header {
 
 .header3 .menu-right {
     display: flex;
-    justify-content: space-evenly;
-}
-
-.header3 .menu-right {
-    display: flex;
+    /* justify-content: space-evenly; */
 }
 
 .header3 .menu-right li {
