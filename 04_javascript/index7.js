@@ -72,4 +72,6 @@ while (true) {
 }
 
 // continue를 이용해 0~99 중 홀수의 합
-let;
+let sum3 = 0;
+
+for (let i = 1; i <= 99; i++) {}
