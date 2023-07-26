@@ -232,5 +232,5 @@ console.log(parseFloat(n3)); // 실수(Float)의 형식으로 변환한다.
 // let avgScore = (Number(mathScore) + Number(engScore)) / 2;
 // console.log(`수학과 영어의 평균 점수는 ${avgScore} 입니다`);
 
-console.log(Number(null), typeof Number(null));
-console.log(Number(undefined), typeof Number(undefined));
+console.log(Number(null), typeof Number(null)); // 0, number
+console.log(Number(undefined), typeof Number(undefined)); // NaN(not a number), number
