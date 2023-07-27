@@ -91,9 +91,7 @@ function myHello() {
   console.log('hello~~~');
 }
 
-// 함수 표현식
-//  - 호이스팅의 대상이 될 수 없음.
-//  - 함수 선언부보다 호출부가 먼저 나올 수 없음.
+// 다만, 함수 표현식으로는 호이스팅의 대상이 될 수 없음. 따라서, 함수 선언부보다 호출부가 먼저 나올 수 없음.
 //myHello2(); // ReferenceError
 myHello2 = function () {
   console.log('hello~~~~2');
