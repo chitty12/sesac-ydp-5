@@ -62,7 +62,7 @@ for (let i = 1; i <= 20; i++) {
 let idx2 = 0;
 while (true) {
   // 무한루프, 브라우저 닫고 다시 실행해야한다.
-  console.log('안녕', idx);
+  console.log('안녕', idx2);
   idx2 = idx2 + 1; // idx += 1
 
   // 빠져나오는 조건 설정.
@@ -74,4 +74,12 @@ while (true) {
 // continue를 이용해 0~99 중 홀수의 합
 let sum3 = 0;
 
-for (let i = 1; i <= 99; i++) {}
+for (let i = 1; i <= 99; i++) {
+  if (i % 2 === 0) {
+    continue;
+  }
+  sum3 += i;
+  // console.log(i, sum3)
+}
+
+console.log(sum3)
