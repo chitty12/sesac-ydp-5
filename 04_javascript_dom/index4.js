@@ -74,23 +74,22 @@ const todos = document.querySelector('.todos');
 todoForm.addEventListener('submit', (e) => {
   console.log('submit');
   e.preventDefault(); // 폼이 제출되는 것, "submit" 이벤트가 새로고침 되는것을 막음.
+  const todoInput = document.querySelector('input[name="todo"]');
+  // console.log(todoInput);
+  // console.dir(todoInput);
+  // console.dir(todoInput.value); // input에 입력된 값. (dir을 통해 나타난 toggle event에서 볼 수 있음.)
+
+  const newTodo = todoInput.value.trim();
+
+  if (newTodo !== '') {
+    const newTodoLi = document.createElement('li'); // <li></li>
+    newTodoLi.append(newTodo); // <li>input입력값</li>
+    todos.append(newTodoLi); //
+
+    // input창 초기화
+    todoInput.value = '';
+  }
 });
-
-const todoInput = document.querySelector('input[name="todo"]');
-// console.log(todoInput);
-// console.dir(todoInput);
-// console.dir(todoInput.value); // input에 입력된 값. (dir을 통해 나타난 toggle event에서 볼 수 있음.)
-
-const newTodo = todoInput.value.trim();
-
-if (newTodo !== '') {
-  const newTodoLi = document.createElement('li'); // <li></li>
-  newTodoLi.append(newTodo); // <li>input입력값</li>
-  todos.append(newTodoLi); //
-
-  // input창 초기화
-  todoInput.value = '';
-}
 
 // change: input요소에 변경이 일어나고, 다른 요소를 클릭해서
 // input이 포커스 아웃(blur)처리되었을 때 일어나는 이벤트
