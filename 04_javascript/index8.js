@@ -79,7 +79,7 @@ console.log(arr2.includes('apple'));
 console.log(arr1.reverse());
 console.log(arr1); // 원본 배열이 변경된 것
 
-// join(): join 안의 문자열 기준으로 병합
+// join(): join 안의 문자열을 이용하여 병합
 console.log(arr2);
 console.log(arr2.join(''));
 console.log(arr2.join('-'));
