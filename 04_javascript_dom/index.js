@@ -117,8 +117,6 @@ console.log(Math.floor(Math.random() * 10));
 
 //1~100
 console.log(Math.round(Math.random() * 100));
-1;
-99;
 
 //20~22
 console.log(Math.floor(Math.random() * 3) + 20);
