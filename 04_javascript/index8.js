@@ -88,3 +88,87 @@ console.log(arr2.join('-'));
 console.log('hello'.split(''));
 console.log('hello'.split('').reverse());
 console.log('hello'.split('').reverse().join(''));
+
+///////////////////////////////
+// 배열에서 반복문 사용하기!
+//  for 문/ for of 문/ for each() 메서드
+let arr3 = [1, 2, 3, 4, 5];
+let fruits = ['사과', '바나나', '수박', '포도', '파인애플'];
+
+for (let a = 0; a < arr3.length; a++) {
+  console.log([a]);
+}
+
+for (let alpha of fruits) {
+  console.log(alpha);
+}
+
+fruits.forEach(function (alpha) {
+  console.log(alpha);
+});
+
+fruits.forEach(function (alpha, idx) {
+  // idx : currentValue의 인덱스(위치)
+  console.log(alpha, idx);
+});
+
+fruits.forEach(function (alpha, idx, arr) {
+  // idx: currentValue의 인덱스(위치)
+  // arr: forEach를 호출한 배열
+  console.log(alpha, idx, arr);
+});
+
+/////////////////////////////////////
+let numbers = [1, 2, 3, 4, 5, 6];
+var sum1 = 0;
+var sum2 = 0;
+var sum3 = 0;
+
+for (let i = 0; i < numbers.length; i++) {
+  console.log(numbers[i]);
+  sum1 += numbers[i];
+}
+
+for (let nums of numbers) {
+  sum2 += nums;
+}
+
+numbers.forEach((nums) => {
+  sum3 += nums;
+});
+
+console.log(sum1, sum2, sum3);
+
+// map, filter, find 메서드
+//  - map : 배열 내 모든 "원소에 대해 연산한 결과"를 모아 새로운 배열 반환
+const arr4 = [1, 2, 3, 4, 5];
+
+arr4.map(function (e) {
+  return e * 2;
+});
+
+//  - filter : 주어진 함수의 조건을 통과하는 요소를 모아, "새로운 배열" 반환
+// const filterResult = arr4.filter(function (e) {
+//   return e > 2;
+// });
+
+const filterResult = arr4.filter((e) => e > 2);
+console.log(filterResult);
+
+//  - find : 특정 조건을 만족하는 첫번째 요소 반환
+const findResult = arr4.find((e) => e > 2);
+console.log(findResult);
+
+// 퀴즈
+const words = ['dog', 'cat', 'rabbit', 'apple', 'wow'];
+const filter1 = words.filter((e) => e.length > 3);
+
+console.log(filter1);
+
+// str.includes() 는 true/ false를 반환하는 메서드에 해당함.
+const filter2 = words.filter((e) => e.includes('a'));
+console.log(filter2);
+
+words.forEach(function (word, dx, ar) {
+  return word, dx, ar;
+});
