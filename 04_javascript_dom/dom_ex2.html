@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 과제 2</title>
+    <style>
+      label {
+        display: inline-block;
+        width: 60px;
+        text-align: center;
+      }
+      #blank {
+        width: 40%;
+      }
+
+      button {
+        margin-top: 15px;
+      }
+      table {
+        margin-top: 15px;
+        font-size: larger;
+        text-align: center;
+      }
+    </style>
+    <script defer src="./dom_ex2.js"></script>
+  </head>
+
+  <body>
+    <h1>방명록 만들기</h1>
+    <div>
+      <label for="writer">작성자 </label>
+      <input type="text" name="writer" id="writer" />
+      <br />
+      <label for="blank">내용 </label>
+      <input type="text" name="blank" id="blank" />
+      <div><button class="btn">작성</button></div>
+    </div>
+
+    <table class="table" border="1" cellspacing="0">
+      <tr>
+        <th>번호</th>
+        <th>작성자</th>
+        <th width="400px">내용</th>
+        <th>작성일</th>
+      </tr>
+    </table>
+  </body>
+</html>
