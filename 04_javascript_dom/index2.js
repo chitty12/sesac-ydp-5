@@ -28,16 +28,16 @@ console.log(document.querySelector('div'));
 console.log(document.querySelector('[name="id"]'));
 
 // 6. querySelectorAll (css selector) : 선택자에 해당되는 모든 요소를 선택
-console.log(document.querySelector('.pink'));
-console.log(document.querySelector('.pink')[0]);
-console.log(document.querySelector('.pink')[1]);
-console.log(document.querySelector('.pink')[2]);
-console.log(document.querySelector('.pink')[3]);
+console.log(document.querySelectorAll('.pink'));
+console.log(document.querySelectorAll('.pink')[0]);
+console.log(document.querySelectorAll('.pink')[1]);
+console.log(document.querySelectorAll('.pink')[2]);
+console.log(document.querySelectorAll('.pink')[3]);
 
-console.log(document.querySelector('.others'));
-console.log(document.querySelector('#green'));
-console.log(document.querySelector('div'));
-console.log(document.querySelector('[name="id"]'));
+console.log(document.querySelectorAll('.others'));
+console.log(document.querySelectorAll('#green'));
+console.log(document.querySelectorAll('div'));
+console.log(document.querySelectorAll('[name="id"]'));
 
 // 유사 배열 (콘솔창 상에서 "HTML Collection", "NodeList")
 // []식으로 출력되어 배열처럼 나열한 것. 배열은 아니다. 다만, index, length는 가짐.
