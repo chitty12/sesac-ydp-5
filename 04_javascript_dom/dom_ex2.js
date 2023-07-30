@@ -22,4 +22,9 @@ btn.addEventListener('click', function () {
   tdNum.innerText = ++num;
 
   tdDay.innerHTML = time;
+
+  // input 창 초기화
+
+  document.getElementById('writer').value = '';
+  document.getElementById('blank').value = '';
 });
