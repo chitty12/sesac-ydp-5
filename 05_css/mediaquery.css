@@ -1,0 +1,49 @@
+.header {
+  background-color: palegoldenrod;
+}
+
+.main {
+  display: flex;
+  background-color: aqua;
+}
+
+.section {
+  background-color: cornflowerblue;
+  width: 80%;
+}
+.aside {
+  width: 20%;
+  background-color: hotpink;
+}
+
+.footer {
+  background-color: chartreuse;
+}
+
+@media (max-width: 480px) {
+  /* .aside {
+    display: none;
+    /* 구역자체까지 없어지게함. vs visibility hidden과 구별 */
+  /* } */
+  .main {
+    flex-direction: column;
+  }
+  .aside {
+    width: 100%;
+  }
+  .section {
+    width: 100%;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  body {
+    background-color: bisque;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  body {
+    background-color: aquamarine;
+  }
+}
