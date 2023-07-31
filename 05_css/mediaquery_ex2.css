@@ -1,0 +1,18 @@
+body {
+  display: flex;
+}
+div {
+  background-color: black;
+  width: 200px;
+  height: 200px;
+  margin: 30px 30px;
+}
+
+@media (max-width: 700px) {
+  body {
+    flex-direction: column;
+  }
+  div {
+    background-color: aquamarine;
+  }
+}

@@ -1,0 +1,28 @@
+body {
+  background-color: aquamarine;
+}
+
+@media (max-width: 300px) {
+  body {
+    background-color: orange;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 300px) {
+  body {
+    background-color: white;
+  }
+}
+
+@media (max-height: 300px) {
+  p {
+    font-style: italic;
+    font-weight: bolder;
+  }
+}
+
+@media (min-height: 500px) {
+  p {
+    background-color: green;
+  }
+}
