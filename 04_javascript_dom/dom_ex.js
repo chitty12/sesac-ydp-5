@@ -27,6 +27,16 @@ btn2.addEventListener('click', function () {
   }
 });
 
+// document.getElementById('result').value = result;
+//       });
+//       const reset = document.getElementById('reset');
+//       reset.addEventListener('click', () => {
+//         const inputs = document.querySelectorAll('input');
+//         inputs.forEach((el) => {
+//           el.value = '';
+//         });
+//       });
+
 // document.querySelector('[name = "value1"]').value = '';
 // document.querySelector('[name = "value2"]').value = '';
 // document.querySelector('[name = "cal"]').value = '';
