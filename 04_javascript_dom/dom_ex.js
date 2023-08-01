@@ -21,8 +21,13 @@ btn1.addEventListener('click', function () {
 });
 
 btn2.addEventListener('click', function () {
-  document.querySelector('[name = "value1"]').value = '';
-  document.querySelector('[name = "value2"]').value = '';
-  document.querySelector('[name = "cal"]').value = '';
-  result.value = '';
+  let inputs = document.querySelectorAll('input');
+  for (let input of inputs) {
+    input.value = '';
+  }
 });
+
+// document.querySelector('[name = "value1"]').value = '';
+// document.querySelector('[name = "value2"]').value = '';
+// document.querySelector('[name = "cal"]').value = '';
+// result.value = '';
