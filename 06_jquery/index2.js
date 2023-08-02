@@ -168,18 +168,58 @@ function emptyJquery() {
 function findParent() {
   const parent = document.querySelector('.child2');
   console.log(parent.parentNode);
+  console.log($('.child2').parent());
 }
-function findParents() {}
+
+function findParents() {
+  // js x
+  console.log($('.child2').parents());
+}
 
 function findNext() {
   const next = document.querySelector('.child2');
   console.log(next.nextElementSibling);
+  console.log($('.child2').next());
 }
 function findPrev() {
   const prev = document.querySelector('.child2');
   console.log(prev.previousElementSibling);
+  console.log($('.child2').prev());
 }
 function findChildren() {
   const chil = document.querySelector('.parent');
   console.log(chil.children);
+  console.log($('.parent').children());
+}
+
+// 클래스 조작하기
+function addClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-50" 클래스 추가
+  //   const hi = document.querySelector('#hi');
+  //   hi.classList.add('fs-50');
+  $('#hi').addClass('fs-50');
+}
+
+function removeClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-50" 클래스 삭제
+  //   const hi = document.querySelector('#hi');
+  //   hi.classList.remove('fs-50');
+  $('#hi').removeClass('fs-50');
+}
+
+function hasClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-50" 클래스 포함 여부 확인
+  //   const hi = document.querySelector('#hi');
+  //   if (hi.classList.contains('fs-50')) {
+  //     console.log('있다');
+  //   } else console.log('없다');
+  console.log($('#hi').hasClass('fs-50'));
+}
+
+function toggleClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-pink" 클래스 토글 (있으면 삭제, 없으면 추가)
+  //   const hi = document.querySelector('#hi');
+  //   hi.classList.toggle('bg-pink');
+
+  $('$hi').toggleClass('bg-pink');
 }

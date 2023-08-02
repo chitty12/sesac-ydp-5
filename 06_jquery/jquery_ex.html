@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습. 이미지 바꾸기</title>
+
+    <!-- TODO: jQuery CDN 추가 -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1>이미지 바꾸기</h1>
+
+    <img class="fruit" src="./image/q.jpg" alt="" width="300" height="200" />
+    <br />
+    <button class="btn apple" onclick="apple();">사과</button>
+    <button class="btn bananas" onclick="banana();">바나나</button>
+    <button class="btn grapes" onclick="grape();">포도</button>
+    <button class="btn peaches" onclick="peach();">복숭아</button>
+
+    <script>
+      function apple() {
+        $('.fruit').attr(
+          'src',
+          'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MjNfMjA2%2FMDAxNjg3NDg1Njg0NTgw.62SdN7Iwp6h_gnBTZzfsOoU7VLE8BJYzgtOijTTj_ikg.IhRV8LdE0PHOCHwTVG08kiRkS_YmX51PDdAm2kKYltIg.JPEG.7foodkr%2FIT_tip250t013090.jpg&type=a340'
+        );
+      }
+
+      function banana() {
+        $('.fruit').attr(
+          'src',
+          'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20220103_118%2F1641219647051n3xRN_JPEG%2F42355535757553926_737451232.jpg&type=a340'
+        );
+      }
+
+      function grape() {
+        $('.fruit').attr(
+          'src',
+          'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA3MTlfMTM1%2FMDAxNjg5NzQ5MzQ0MjAx.smn2k4dNQa7OkSvgc9RNjr99TW9tz7X2MoXA-A8PEFog.2GZQJeFMwi7GIJx5W-X3BknEc-arKh_2G8QA6HJ7LaIg.PNG.gkzk6236%2Fimage.png&type=a340'
+        );
+      }
+
+      function peach() {
+        $('.fruit').attr(
+          'src',
+          'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20200720_6%2F1595235402525hJwYI_JPEG%2F32596141159222581_722541555.jpg&type=a340'
+        );
+      }
+    </script>
+  </body>
+</html>
