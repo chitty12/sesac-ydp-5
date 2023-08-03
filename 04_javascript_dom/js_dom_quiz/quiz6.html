@@ -101,6 +101,26 @@
         '뮤! 넌 내거야',
         '오레오 쿠키 앤 크림',
       ];
+
+      for (let i = 9; i > 0; i--) {
+        const article = document.createElement('article');
+        section.prepend(article);
+        document.querySelector('article').classList.add('article-box');
+
+        const img1 = document.getElementsByTagName('article');
+        img1[0].innerHTML = `<img src = "./image/icecream${i}.png">`;
+        document.querySelector('article img').classList.add('img-box');
+
+        const h3 = document.createElement('h3');
+        h3.innerText = `Top${i}`;
+        h3.classList.add('text-center');
+        article.append(h3);
+
+        const div = document.createElement('div');
+        div.innerText = `${icecreams[i - 1]}`;
+        div.classList.add('text-center');
+        article.append(div);
+      }
     </script>
   </body>
 </html>

@@ -18,8 +18,24 @@
     <ul class="comment-list"></ul>
 
     <script>
-      // TODO: 아래 조건을 만족하도록 js 파일을 수정하기
-      // Slack 실행 영상 참고
+      const button = document.querySelector('button');
+
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const id = document.querySelector('#userid');
+        const comment = document.querySelector('#comment');
+
+        const ul = document.querySelector('.comment-list');
+        const li = document.createElement('li');
+
+        li.innerText = `${id.value} \- ${comment.value}`;
+        ul.append(li);
+
+        id.value = '';
+        comment.value = '';
+      });
+
       // 문제
       // - [ ] 아이디 input과 댓글 input을 입력하고 [등록] 버튼을 누르면, 댓글이 추가됩니다.
       //     - 폼을 "제출"헸을 때에 해당하는 이벤트는 무엇인가요?
