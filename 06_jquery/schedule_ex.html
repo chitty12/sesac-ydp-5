@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery 실습-스케줄</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="./schedule_ex.js"></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+      }
+      .form {
+        position: relative;
+        right: 200px;
+        top: 50px;
+      }
+      .table {
+        border: 0;
+        width: 800px;
+        height: 800px;
+      }
+      .tr {
+        text-align: center;
+      }
+      td {
+        cursor: pointer;
+        text-align: center;
+        width: 130px;
+        height: 130px;
+      }
+
+      td:hover {
+        padding: 0px;
+        border-style: solid;
+        border-color: orange;
+        font-weight: bolder;
+        font-size: larger;
+      }
+      .sun {
+        color: red;
+      }
+      .sat {
+        color: blue;
+      }
+      button {
+        width: 50px;
+        height: 30px;
+        margin-top: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      button:active {
+        background-color: darkgrey;
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="form">
+      <label for="date">날짜 : </label
+      ><input type="text" name="date" id="date" />
+      <br />
+      <label for="subs">내용 : </label
+      ><input type="text" name="subs" id="subs" />
+      <div>
+        <button type="submit" class="submit">작성</button>
+      </div>
+    </form>
+
+    <table cellspacing="0" cellpadding="10" class="table">
+      <caption>
+        <h1 style="color: green">2023년 7월</h1>
+      </caption>
+      <tr class="tr">
+        <th class="sun">일</th>
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+        <th class="sat">토</th>
+      </tr>
+
+      <tr class="tr">
+        <td class="sun"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="sat">1</td>
+      </tr>
+      <tr class="tr">
+        <td class="sun">2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td class="sat">8</td>
+      </tr>
+      <tr class="tr">
+        <td class="sun">9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+        <td>13</td>
+        <td>14</td>
+        <td class="sat">15</td>
+      </tr>
+      <tr class="tr">
+        <td class="sun">16</td>
+        <td>17</td>
+        <td>18</td>
+        <td>19</td>
+        <td>20</td>
+        <td>21</td>
+        <td class="sat">22</td>
+      </tr>
+      <tr class="tr">
+        <td class="sun">23</td>
+        <td>24</td>
+        <td>25</td>
+        <td>26</td>
+        <td>27</td>
+        <td>28</td>
+        <td class="sat">29</td>
+      </tr>
+      <tr class="tr">
+        <td class="sun">30</td>
+        <td>31</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="sat"></td>
+      </tr>
+    </table>
+  </body>
+</html>
