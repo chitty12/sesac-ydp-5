@@ -20,9 +20,7 @@
     <script>
       const button = document.querySelector('button');
 
-      button.addEventListener('click', function (event) {
-        event.preventDefault();
-
+      button.addEventListener('submit', function (event) {
         const id = document.querySelector('#userid');
         const comment = document.querySelector('#comment');
 
@@ -31,7 +29,7 @@
 
         li.innerText = `${id.value} \- ${comment.value}`;
         ul.append(li);
-
+        event.preventDefault();
         id.value = '';
         comment.value = '';
       });
