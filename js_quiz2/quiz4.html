@@ -84,8 +84,32 @@
     </p>
 
     <script>
-      function whatDay() {
+      function whatDay(day) {
         // TODO: 조건을 만족하는 whatDay 함수를 완성해주세요.
+        switch (day) {
+          case 1:
+            return '월';
+
+          case 2:
+            return '화';
+          case 3:
+            return '수';
+
+          case 4:
+            return '목';
+
+          case 5:
+            return '금';
+
+          case 6:
+            return '토';
+
+          case 7:
+            return '일';
+
+          default:
+            return null;
+        }
       }
 
       // TODO: 해당 html 파일을 실행한 브라우저 콘솔창에서 whatDay 함수를 호출해주세요!

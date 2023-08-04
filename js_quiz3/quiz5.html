@@ -90,12 +90,18 @@
     <br />
 
     <script>
-      function drawStars() {
-        // TODO: drawStars() 함수 내부 코드를 채워주세요.
+      function drawStars(lines) {
+        for (let i = lines; i > 0; i--) {
+          let star = '*';
+          console.log(star.repeat(i));
+        }
       }
 
-      function drawStars2() {
-        // TODO: drawStars2() 함수 내부 코드를 채워주세요.
+      function drawStars2(lines) {
+        for (let i = 1; i <= lines; i++) {
+          let star = '*';
+          star.repeat(i);
+        }
       }
 
       function drawStars3() {
