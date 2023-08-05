@@ -85,10 +85,14 @@
         seller: 'Jane',
         isStock: true,
         colors: ['black', 'white', 'skyblue', 'yellow'],
-        orders: Math.floor(Math.random() * 90 + 9),
+        orders: Math.floor(Math.random() * 90) + 10,
       };
 
-      console.log(item);
+      console.log(`고유번호 : ${item.id}`);
+      console.log(`상품명 : ${item.name}`);
+      console.log(`판매자 : ${item.seller}`);
+      console.log(`색상 : ${item.colors[3]}`);
+      console.log(`주문량 : ${item.orders}`);
     </script>
   </body>
 </html>

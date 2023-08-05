@@ -21,6 +21,7 @@
       const button = document.querySelector('button');
 
       form.addEventListener('submit', function (event) {
+        event.preventDefault();
         const id = document.querySelector('#userid');
         const comment = document.querySelector('#comment');
 
@@ -29,7 +30,7 @@
 
         li.innerText = `${id.value} \- ${comment.value}`;
         ul.append(li);
-        event.preventDefault();
+
         id.value = '';
         comment.value = '';
       });

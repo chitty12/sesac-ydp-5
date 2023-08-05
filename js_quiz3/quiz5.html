@@ -100,20 +100,32 @@
       function drawStars2(lines) {
         for (let i = 1; i <= lines; i++) {
           let star = '*';
-          star.repeat(i);
+          console.log(' '.repeat(lines - i) + star.repeat(i));
         }
       }
 
-      function drawStars3() {
-        // TODO: drawStars3() 함수 내부 코드를 채워주세요.
+      function drawStars3(lines) {
+        for (let i = 1; i <= lines; i++) {
+          let star = '*';
+          console.log(' '.repeat(lines - i) + star.repeat(2 * i - 1));
+        }
       }
 
-      function drawStars4() {
-        // TODO: drawStars4() 함수 내부 코드를 채워주세요.
+      function drawStars4(lines) {
+        let star = '*';
+        for (let i = 1; i <= lines; i++) {
+          console.log(' '.repeat(lines - i) + star.repeat(2 * i - 1));
+        }
+        for (let i = lines - 1; i > 0; i--) {
+          console.log(' '.repeat(lines - i) + star.repeat(2 * i - 1));
+        }
       }
 
-      function drawStars5() {
-        // TODO: drawStars5() 함수 내부 코드를 채워주세요.
+      function drawStars5(lines) {
+        let star = '*';
+        for (let i = 1; i <= lines; i++) {
+          console.log(' '.repeat(lines - i) + star.repeat(lines));
+        }
       }
 
       // TODO: 해당 html 파일을 실행한 브라우저 콘솔창에서 drawStars ~ drawStars5 함수를 호출해주세요!
