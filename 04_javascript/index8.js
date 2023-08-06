@@ -143,9 +143,23 @@ console.log(sum1, sum2, sum3);
 //  - map : 배열 내 모든 "원소에 대해 연산한 결과"를 모아 새로운 배열 반환
 const arr4 = [1, 2, 3, 4, 5];
 
-arr4.map(function (e) {
+const m = arr4.map(function (e) {
   return e * 2;
 });
+
+console.log(m);
+
+const e = arr4.forEach(function (e) {
+  console.log(e * 2);
+});
+
+console.log(e);
+
+const f = arr4.filter(function (e) {
+  return e * 2;
+});
+
+console.log(f);
 
 //  - filter : 주어진 함수의 조건을 통과하는 요소를 모아, "새로운 배열" 반환
 // const filterResult = arr4.filter(function (e) {
