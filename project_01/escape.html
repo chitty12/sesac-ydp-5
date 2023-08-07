@@ -27,30 +27,75 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   </head>
   <body>
-    <header class="">
-      <span>방탈출 통합 홈페이지</span>
-      <ul class="">
-        <li class="">
-          <button class="">
-            어디니
-            <span class=""></span>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="text-align: center;">
+            <img src="./img/안대.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            <p style="font-size: small;">방탈출 통합 홈페이지</p>
+            <span>escapeOne</span>
+          </a>
+        </div>
+        
+      
+          
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
           </button>
-          <ul class="">
-            <li class="">
-              <a> 서울이니 </a>
-              <a> 경기도니 </a>
-              <a> 부산이니 </a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  어디니
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">서울이니</a></li>
+                  <li><a class="dropdown-item" href="#">경기도니</a></li>
+                  <li><a class="dropdown-item" href="#">부산이니</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">그럼 어디니</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">언제니</a>
+              </li>
 
-              <a> 그럼 어디니 </a>
-            </li>
-          </ul>
-        </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >몇명이니</a
+                >
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">뭘 찾니</button>
+            </form>
+          </div>
+        </div>
+      </nav>
 
-        <li>언제니</li>
-        <li>몇명이니</li>
-      </ul>
 
-      <nav>
+
+      <!-- <nav>
         <div class="">
           <div class="swiper-button-prev"></div>
 
@@ -83,7 +128,7 @@
     </header>
     <main>
       <article class=""></article>
-    </main>
+    </main> -->
   </body>
 
   <script>
