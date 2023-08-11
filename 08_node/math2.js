@@ -22,6 +22,6 @@ const dvd = (a, b) => a / b;
 
 // case2. 하나씩 내보내기
 // module.exports.add = add;
-// exports.add = add;
+exports.add = add;
 
-module.exports = add;
+// module.exports = add;
