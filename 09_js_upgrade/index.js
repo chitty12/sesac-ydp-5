@@ -119,7 +119,7 @@ function get(a, b, ...rest) {
   console.log('rest >>', rest);
 }
 
-get(...values);
+get(...values); // 배열 형태로 출력 [ 3, 4, 5, 6, 7, 8 ]
 
 // 2. 객체에서 rest 사용
 const icecream = {
