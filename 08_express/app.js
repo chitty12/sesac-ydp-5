@@ -5,6 +5,7 @@ const PORT = 8080;
 // express 에 템플릿 엔진 종류 등록
 app.set('view engine', 'ejs'); // express 에서 사용할 템플릿 엔진 종류(ejs) 등록
 app.set('views', './views'); // 템플릿 엔진 파일을 저장할 위치를 등록
+app.use('/public', express.static(__dirname + '/static')); // static 미들웨어 등록
 
 // (가정) 데이터베이스에서 가져온 회원 정보(id, pw)임.
 const idFromDB = 'banana';
@@ -23,7 +24,6 @@ app.get('/', function (req, res) {
       msg: '안녕하세요 태영이에요',
     },
     isLogin: true,
-    title: ['로그인페이지', '회원가입페이지', '홈'],
   }); // render(ejs_filename) : ejs file 이름을 찾아서 클라이언트에게 응답
 });
 

@@ -1,0 +1,14 @@
+.header {
+  background-color: #222;
+  color: white;
+}
+
+a:link link {
+  color: red;
+  text-decoration-line: none;
+}
+
+a:visited {
+  color: red;
+  text-decoration-line: none;
+}

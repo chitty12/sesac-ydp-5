@@ -4,9 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%- include ('./includes/head', {title: '홈'}) %>
+
+    <!-- index.ejs에서만 적용하려는 css는 따로 지정하면 된다. -->
+    <link rel="stylesheet" href="/public/css/home.css" />
   </head>
   <body>
     <%- include('./includes/header')%>
+
     <p>안녕하세요~ <%= userId%>님! 환영합니다.</p>
     <p>비밀번호는 <%= userPw%> 가 맞습니까??</p>
 
