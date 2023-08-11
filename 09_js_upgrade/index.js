@@ -138,3 +138,145 @@ const [원, 투, ...나머지] = numb;
 console.log(원);
 console.log(투);
 console.log(나머지);
+
+console.clear();
+
+// 클래스 : 객체 생성 템플릿
+
+//
+/* 
+속성: 
+    만들어진 연도(Number)
+    집의 이름(String)
+    창문 갯수(Number)
+메서드:
+    2023 - 만들어진 연도 콘솔창에 출력하는 "건물의 나이 메소드"
+    창문의 갯수 콘솔창에 출력하는 메소드
+*/
+
+class House {
+  // 생성자 함수 : 클래스를 이용해 객체를 생성할 때마다 속성을 초기화 시킴
+  constructor(year, name, window) {
+    this.year = year;
+    this.name = name;
+    this.window = window;
+  }
+
+  //   매서드 1 : 집 나이
+  getAge() {
+    console.log(`${this.name}는 건축한지 ${2023 - this.year}년 되었어요!`);
+  }
+
+  // 매서드 2 :  창문 개수
+  getWindow() {
+    console.log(`${this.name}의 창문은 ${this.window}개 입니다!`);
+  }
+}
+
+// 클래스를 이용해 객체를 찍어보자
+const house1 = new House('1990', '롯데캐슬', '1');
+console.log('house1>>', house1);
+console.log(typeof house1); // object
+console.log(house1.year);
+
+house1.getAge();
+house1.getWindow();
+
+const house2 = new House('2007', '자이', '10');
+house2.getAge();
+house2.getWindow();
+
+// 클래스 상속(부모 : House, 자식 : Apartment)
+class Apartment extends House {
+  constructor(year, name, window, floor, windowMaker) {
+    super(year, name, window);
+    // 부모객체에서 상속받아옴 = 상속한 부모 클래스의 생성자를 불러옴.
+    this.floor = floor;
+    this.windowMaker = windowMaker;
+  }
+
+  getAptInfo() {
+    return `${this.year}년에 지어진 ${this.name} 아파트의 총 층수는 ${this.floor} 이며, 창문의 개수는 ${this.window}`;
+  }
+
+  // 오버라이딩 (overriding) : 부모 클래스에 정의되어 있는 메서드 이름을 동일하게 쓰면서 내용은 다르게 할때
+  getWindow() {
+    return `${this.name} 아파트의 ${this.window} 개의 창문은 ${this.windowMaker} 회사에서 생산되었습니다.`;
+  }
+}
+
+const apt1 = new Apartment(2022, '래미안', 3, 20, 'KCC');
+console.log(apt1);
+console.log(apt1.getAptInfo());
+
+console.clear();
+
+class Shape {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  getArea() {
+    console.log(
+      `가로 ${this.x}, 세로 ${this.y}의 길이를 가진 직사각형 넓이는 ${
+        this.x * this.y
+      } 입니다`
+    );
+  }
+}
+
+class Rectangle extends Shape {
+  constructor(x, y) {
+    super(x, y);
+  }
+
+  getArea() {
+    const xy = this.x * this.y;
+    return `가로 ${this.x}, 세로 ${
+      this.y
+    }의 길이를 가진 직사각형의 대각선의 길이는 ${Math.sqrt(xy)} 입니다.`;
+  }
+}
+
+class Triangle extends Shape {
+  constructor(x, y) {
+    super(x, y);
+  }
+
+  getArea() {
+    return `밑변 ${this.x}, 높이 ${
+      this.y
+    }의 길이를 가진 삼각형의 대각선의 길이는 ${(this.x * this.y) / 2} 입니다.`;
+  }
+}
+
+class Circle extends Shape {
+  constructor(x, y, z) {
+    super(x, y);
+    this.z = z;
+  }
+
+  getArea() {
+    return ` 반지름이 ${this.z}인 원의 넓이는 ${
+      this.z * this.z * 3.14
+    } 입니다.`;
+  }
+}
+
+// x, y를 이용해서 반지름구하여 원넓이 연산.
+
+let rec1 = new Shape(3, 4);
+console.log(rec1.getArea());
+
+const cross = new Rectangle(2, 3);
+console.log(cross);
+console.log(cross.getArea());
+
+const tri = new Triangle(2, 3);
+console.log(tri);
+console.log(tri.getArea());
+
+const won = new Circle(2, 2, 2);
+console.log(won);
+console.log(won.getArea());
