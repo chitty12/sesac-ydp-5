@@ -9,8 +9,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
+  res.render('get_ex');
+});
+
+app.get('/getForm', (req, res) => {
   console.log(req.query);
-  res.render('get_ex', { title: 'Get 요청', userInfo: req.query });
+  res.render('getresult_ex', { title: '회원가입 결과', userInfo: req.query });
 });
 
 app.listen(PORT, () => {
