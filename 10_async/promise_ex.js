@@ -2,27 +2,29 @@ function call(name) {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       console.log(name);
-      const result = name;
-      resolve(result);
+      resolve(name);
+      reject(new Error('에러에요'));
     }, 1000);
   });
 }
 
-function back(txt) {
+function back(result) {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       console.log('back');
-      const txt = 'back';
-      resolve(txt);
+
+      // resolve(result);
+      reject(new Error('에러에요'));
     }, 1000);
   });
 }
 
-function hell(msg) {
+function hell() {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       const msg = 'callback hell';
       resolve(msg);
+      reject(new Error('에러에요'));
     }, 1000);
   });
 }
@@ -30,12 +32,13 @@ function hell(msg) {
 call('kim')
   .then(function (result) {
     console.log(result + '반가워');
-    return back();
+    return back('back');
   })
-  .then(function (txt) {
-    console.log(txt + '을 실행했구나');
+  .then(function (result) {
+    console.log(result + '을 실행했구나');
     return hell();
   })
-  .then(function (msg) {
-    console.log('여기는' + msg);
-  });
+  .then(function (result) {
+    console.log('여기는' + result);
+  })
+  .catch((error) => console.log(error));
