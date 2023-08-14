@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>콜백지옥 예시</h1>
+
+    <script>
+      function chg(cb) {
+        setTimeout(function () {
+          document.querySelector('body').style.backgroundColor = 'red';
+          cb(
+            setTimeout(function () {
+              document.querySelector('body').style.backgroundColor = 'orange';
+              cb();
+            }, 1000)
+          );
+        }, 1000);
+      }
+
+      chg();
+    </script>
+  </body>
+</html>
