@@ -2,8 +2,7 @@ function call(name) {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       console.log(name);
-      const result = name;
-      resolve(result);
+      resolve(name);
     }, 1000);
   });
 }
@@ -12,17 +11,15 @@ function back(txt) {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       console.log('back');
-      const txt = 'back';
       resolve(txt);
     }, 1000);
   });
 }
 
-function hell(msg) {
+function hell() {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
-      const msg = 'callback hell';
-      resolve(msg);
+      resolve('callback hell');
     }, 1000);
   });
 }
@@ -30,9 +27,9 @@ function hell(msg) {
 async function exec() {
   let name = await call('kim');
   console.log(name + '반가워');
-  let txt = await back('kim');
+  let txt = await back('back');
   console.log(txt + '을 실행했구나');
-  let msg = await hell('kim');
+  let msg = await hell();
   console.log('여기는' + msg);
 }
 
