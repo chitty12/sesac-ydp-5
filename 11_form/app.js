@@ -9,6 +9,7 @@ app.set('/views', 'views');
 // app.use()
 // req.body 객체를 해석할 수 있도록  body-parser 미들웨어 등록.
 app.use(express.urlencoded({ extended: true })); //post 요청으로 들어오는 모든 형식의 데이터를 파싱(분해)
+// false 의 경우에는 데이터를 string 또는 object로만 받게 된다.
 app.use(express.json()); // json 형식으로 데이터를 주고 받을것이라는 선언.
 
 // 라우팅(routing) - 주소설정
