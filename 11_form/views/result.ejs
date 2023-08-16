@@ -17,5 +17,14 @@
     <h1><%= title %></h1>
     <div><span><%= userInfo.id %></span>님 환영합니다!</div>
     <div>비밀번호는 <span><%= userInfo.pw %></span>이세요!</div>
+
+    <% if(userInfo.email) { %>
+    <div>이메일은 <span><%= userInfo.email %></span>입니다</div>
+    <% } %> <% if (userInfo.grade !== undefined && userInfo.grade !== '') { %>
+    <div>학년은 <span><%= userInfo.grade %></span>학년 이군요!</div>
+    <%}%>
   </body>
 </html>
+
+<!-- A && B
+!A || !B -->

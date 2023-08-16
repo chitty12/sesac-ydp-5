@@ -12,9 +12,9 @@ app.get('/', (req, res) => {
   res.render('get_ex');
 });
 
-app.get('/getForm', (req, res) => {
-  console.log(req.query);
-  res.render('getresult_ex', { title: '회원가입 결과', userInfo: req.query });
+app.post('/postForm', (req, res) => {
+  console.log(req.body);
+  res.render('getresult_ex', { title: '회원가입 결과', userInfo: req.body });
 });
 
 app.listen(PORT, () => {
