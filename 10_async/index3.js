@@ -1,16 +1,16 @@
-// async function f1() {
-//   return 1;
-// }
+async function f1() {
+  return 1;
+}
 
-// async function f2() {
-//   return Promise.resolve(1);
-// }
+async function f2() {
+  return Promise.resolve(1);
+}
 
-// console.log(f1()); // Promise { 1 } : f1 함수는 async 키워드가 붙어있으므로 프로미스를 반환하게된다.
+console.log(f1()); // Promise { 1 } : f1 함수는 async 키워드가 붙어있으므로 프로미스를 반환하게된다.
 
-// f1().then(function (result) {
-//   console.log(result); // 1
-// });
+f1().then(function (result) {
+  console.log(result); // 1
+});
 
 // console.log(f2()); // Promise { <pending> }
 
