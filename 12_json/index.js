@@ -10,14 +10,14 @@ const car = `{
 
 console.log(car);
 
-// JSON.parse() :json to js obj
+// JSON.parse() :json to js obj 역직렬화
 
 const obj = JSON.parse(car); // js obj 로 변환되었으니까...
 console.log(obj.model); // 연산자를 이용해서 추출(접근)가능하다
 console.log(obj.company);
 console.log(obj.wow);
 
-// JSON.stringify(): js obj to json
+// JSON.stringify(): js obj to json 직렬화
 const json = JSON.stringify(obj); // format : json
 console.log(json, typeof json);
 
