@@ -21,6 +21,7 @@
     <% if(userInfo.email) { %>
     <div>이메일은 <span><%= userInfo.email %></span>입니다</div>
     <% } %> <% if (userInfo.grade !== undefined && userInfo.grade !== '') { %>
+    <!-- userInfo.email -->
     <div>학년은 <span><%= userInfo.grade %></span>학년 이군요!</div>
     <%}%>
   </body>
