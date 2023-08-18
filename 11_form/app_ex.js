@@ -17,6 +17,16 @@ app.post('/postForm', (req, res) => {
   res.render('getresult_ex', { title: '회원가입 결과', userInfo: req.body });
 });
 
+app.get('/axios', (req, res) => {
+  console.log(req.query);
+  res.render('get_ex');
+});
+
+app.post('/axios', (req, res) => {
+  console.log(req.body);
+  res.render('get_ex');
+});
+
 app.listen(PORT, () => {
   console.log(`${PORT} is opening~!`);
 });

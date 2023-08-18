@@ -173,7 +173,7 @@
           await axios({
             method: 'post',
             url: '/axios',
-            data: data,
+            params: data,
           });
 
           result.textContent = `post /axios 요청 완료!! ${form.name.value}님은 ${form.gender.value} 이시죠`;
