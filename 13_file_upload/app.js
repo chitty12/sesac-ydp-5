@@ -31,6 +31,7 @@ app.set('/views', 'view');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use('/uploads', express.static(__dirname + '/uploads')); //static 미들웨어 등록
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -66,6 +67,11 @@ app.post(
     res.send('하나의 인풋에 여러 파일 업로드 완료');
   }
 );
+
+app.post('/dynamicFile', uploadDetail.single('dynamicUserfile'), (req, res) => {
+  console.log(req.file);
+  res.send(req.file);
+});
 
 app.listen(PORT, () => {
   console.log(`${PORT}로 연결되었습니다!`);

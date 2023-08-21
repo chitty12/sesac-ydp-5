@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>multer 학습하기</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
+
   <body>
     <h1>파일 업로드</h1>
 
@@ -36,5 +39,43 @@
       <br />
       <button type="submit">업로드</button>
     </form>
+
+    <h2>동적 파일 업로드</h2>
+
+    <input type="file" name="dynamicUserfile" id="dynamic-file" /><br />
+    <br />
+    <button type="button" onclick="fileUpload()">업로드</button>
+    <br />
+    <img src="" alt="" width="200" />
   </body>
+
+  <script>
+    function fileUpload() {
+      console.log('동적 파일 업로드');
+      const formData = new FormData();
+      // js 만으로 폼을 전송(파일데이터를 서버로 전송해야하는 케이스) : formdata 객체를 활용!!
+
+      const file = document.querySelector('#dynamic-file');
+      console.dir(file);
+      console.dir(file.files); // 업로드한 파일 객체 files 추출
+      console.dir(file.files[0]); // 업로드한 첫 파일 추출
+
+      formData.append('dynamicUserfile', file.files[0]);
+      //  append(key, value)
+
+      axios({
+        method: 'post',
+        url: '/dynamicfile',
+        data: formData,
+        header: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }).then((res) => {
+        console.log(res);
+        const { data } = res;
+        console.log(data);
+        document.querySelector('img').src = data.path;
+      });
+    }
+  </script>
 </html>
