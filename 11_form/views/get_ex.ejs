@@ -13,8 +13,7 @@
   </head>
 
   <body>
-    <form name="register">
-      <!-- action="/postForm" method="post"> -->
+    <form name="register" action="/upload" method="post" enctype="multipart/form-data">
       <label for="name">이름 : </label>
       <input type="text" name="name" id="name" required />
       <br />
@@ -71,6 +70,8 @@
         <label for="number">좋아하는 숫자 </label>
         <input type="number" name="number" id="number" required />
       </fieldset>
+      <input type="file" name = "userfile"></input>
+<br>
       <button type="submit" onclick="join()">회원가입</button>
     </form>
 
@@ -93,9 +94,9 @@
       const result = document.querySelectorAll('.result');
       const form = document.forms['register'];
 
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-      });
+      // form.addEventListener('submit', (e) => {
+      //   e.preventDefault();
+      // });
 
       async function join() {
         const data = {

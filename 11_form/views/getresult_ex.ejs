@@ -4,11 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form 제출 결과</title>
+
+    <style>
+      /* body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 500px;
+        height: 1000px;
+      } */
+    </style>
   </head>
+
   <body>
-    <h1><%= title %></h1>
+    <img src="/upload" alt="프로필 사진" />
+
+    <h2><%= userInfo.name%>님 환영합니다!</h2>
+
     <ul>
-      <li>이름 : <%= userInfo.name%></li>
       <li>성별 : <%= userInfo.gender%></li>
       <li>
         생년월일 : <%= userInfo.year%>.<%= userInfo.month%>.<%= userInfo.day%>
