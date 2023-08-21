@@ -15,10 +15,10 @@
     <h1>동적 폼 전송 연습하기</h1>
     <form name="register">
       <label for="name">이름</label>
-      <input type="text" name="name" id="name" />
+      <input type="text" name="name" id="name" required />
       <br />
       성별
-      <input type="radio" name="gender" value="m" id="male" />
+      <input type="radio" name="gender" value="m" id="male" required />
       <label for="male">남</label>
 
       <input type="radio" name="gender" value="f" id="female" />
@@ -28,7 +28,9 @@
       <button type="button" onclick="ajaxPost()">Ajax Post 제출</button>
       <br />
 
-      <button type="button" onclick="axiosGet()">axios Get 제출</button>
+      <button type="button" onclick="axiosGet()">
+        axios Get 제출 [form validation 추가]
+      </button>
       <button type="button" onclick="axiosPost()">axios Post 제출</button>
       <br />
 
@@ -122,6 +124,10 @@
           gender: form.gender.value,
         };
 
+        console.log(form.name.checkValidity()); // true or false 값으로 출력.
+        console.log(form.gender[0].checkValidity()); // 같은 name으로 묶인 radio는 하나만 체크되어도 true!!
+        console.log(form.gender[1].checkValidity());
+
         // axios 요청의 결과는 Promise 객체에 해당하여, .then, .catch 메서드로 체이닝이 가능~!
         // async, await도 사용가능하다
         axios({
@@ -152,9 +158,16 @@
         async function ax() {
           try {
             await axios;
-            result.textContent = `Get /axios 요청 완료!! ${form.name.value}님은 ${form.gender.value} 이시죠`;
+
+            if (form.name.checkValidity() && form.gender[0].checkValidity()) {
+              result.textContent = `Get /axios 요청 완료!! ${form.name.value}님은 ${form.gender.value} 이시죠`;
+            } else if (!form.name.checkValidity()) {
+              result.textContent = `이름을 입력해주세요`;
+            } else if (!form.gender[0].checkValidity()) {
+              result.textContent = `성별을 선택해주세요`;
+            }
           } catch {
-            alert(new Error('에러에요'));
+            alert(new Error('에러발생 코드를 점검해보세요'));
           }
         }
 
