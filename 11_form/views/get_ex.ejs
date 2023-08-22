@@ -179,13 +179,18 @@
             result[1].style.color = 'red';
             result[1].style.fontWeight = 900;
           } else if(id === tempid && pw === temppw)
-            result[1].textContent = `${id}님 로그인에 성공하셨습니다!`;
+            {result[1].textContent = `${id}님 로그인에 성공하셨습니다!`;
             result[1].style.color = 'blue';
             result[1].style.fontWeight = 900;
-          document.querySelector('#id').value = '';
-            document.querySelector('#pw').value = '';})
+            document.querySelector('#id').value = '';
+            document.querySelector('#pw').value = '';}
+            else if(id === tempid && pw !== temppw){
+            result[1].textContent = `비밀번호가 일치하지 않습니다`;
+            result[1].style.color = 'red';
+            result[1].style.fontWeight = 900;
+            document.querySelector('#pw').value = '';}
         }
-
+        )}
 
 
 
