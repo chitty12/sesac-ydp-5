@@ -1,0 +1,25 @@
+img {
+  width: 70%;
+  border-radius: 20%;
+}
+
+body {
+  background-color: rgba(250, 235, 215, 0.158);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  list-style-type: none;
+}

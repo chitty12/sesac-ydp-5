@@ -5,28 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form 제출 결과</title>
 
-    <style>
-      /* body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 500px;
-        height: 1000px;
-      } */
-    </style>
+    <link rel="stylesheet" href="../static/style.css" />
   </head>
 
   <body>
-    <img src="/upload" alt="프로필 사진" />
+    <div>
+      <img src="<%= src%>" alt="프로필 사진" />
+      <h2><%= userInfo.name%>님 환영합니다!</h2>
 
-    <h2><%= userInfo.name%>님 환영합니다!</h2>
-
-    <ul>
-      <li>성별 : <%= userInfo.gender%></li>
-      <li>
-        생년월일 : <%= userInfo.year%>.<%= userInfo.month%>.<%= userInfo.day%>
-      </li>
-      <li>관심사 : <%= userInfo.interesting%></li>
-    </ul>
+      <ul>
+        <li>성별 : <%= userInfo.gender%></li>
+        <li>
+          생년월일 : <%= userInfo.year%>.<%= userInfo.month%>.<%= userInfo.day%>
+        </li>
+        <li>관심사 : <%= userInfo.interesting%></li>
+      </ul>
+    </div>
   </body>
 </html>

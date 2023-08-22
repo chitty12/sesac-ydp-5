@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = 8080;
+
 const multer = require('multer');
 const path = require('path');
 
@@ -11,7 +12,7 @@ const upload = multer({
     },
     filename(req, file, done) {
       const ext = path.extname(file.originalname);
-      done(null, path.basename(req.body.name) + ext);
+      done(null, req.body.name + Date.now() + ext);
     },
   }),
 });
@@ -22,20 +23,20 @@ app.set('/views', 'views');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/uploads', express.static(__dirname + '/uploads'));
+app.use('/static', express.static(__dirname + '/static'));
 
 app.get('/', (req, res) => {
   res.render('get_ex');
 });
 
-app.post('/postForm', (req, res) => {
-  console.log(req.body);
-  res.render('getresult_ex', { title: '회원가입 결과', userInfo: req.body });
-});
-
 app.post('/upload', upload.single('userfile'), (req, res) => {
   console.log(req.file);
   console.log(req.body);
-  res.send('upload!!');
+  res.render('getresult_ex', {
+    title: '회원가입 결과',
+    userInfo: req.body,
+    src: req.file.path,
+  });
 });
 
 app.get('/axios', (req, res) => {
