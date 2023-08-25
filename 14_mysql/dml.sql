@@ -32,7 +32,7 @@ CREATE TABLE orders (
 );
 DESC orders;
 
-
+ALTER TABLE orders CHANGE amout amount SMALLINT NOT NULL;
 
 
 -- INSERT 추가
@@ -87,7 +87,6 @@ TRUNCATE TABLE orders;
 -- customer table에 존재하는 회원만 orders 테이블에 데이터 추가가능함
 -- 만약 orders table 이 있는 상태에서 customer table 삭제시, 외래키가 설정된 테이블(참조 테이블)을 먼저 삭제해야한다. 
 -- 기본 테이블을 먼저 삭제하려고 하면, 참조테이블에 에러가 생길것이므로 삭제불가하다는 에러가 발생함
-
 
 
 
@@ -205,3 +204,73 @@ SELECT *FROM customer WHERE addr LIKE '대한민국%' and birth >= '2000-01-01';
 SELECT *FROM customer WHERE addr LIKE ('미국%' or '영국%');
 -- 휴대폰 번호 마지막 자리가 4가 아닌 고객 검색
 SELECT *FROM customer WHERE phone NOT LIKE '%_4';
+
+
+-- <ORDER BY> 
+-- 설정없는 경우 : PK 기준 오름차순으로 정렬됨
+-- WHERE 절과 ORDER BY 함께 사용시, WHERE 절 뒤에 ORDER BY 사용
+-- ORDER BY 한 정렬에서 같은 값이 존재할 경우에는 PK 기준으로 우선순위를 정함
+
+SELECT *FROM customer WHERE birth >= '2000-01-01' ORDER BY addr DESC, custid DESC;
+-- addr 을 기준으로 내림차순 하고, custid 기준으로 내림차순한다
+SELECT *FROM customer WHERE birth >= '2000-01-01' ORDER BY addr, custid DESC;
+-- addr 을 기준으로 오름차순 하고, custid 기준으로 내림차순한다
+
+
+-- <LIMIT>
+-- 행의 개수 제한
+SELECT *FROM customer WHERE birth >= '2000-01-01' LIMIT 2;
+
+
+-- <집계 함수>
+-- 계산하여 어떤 값을 리턴하는 '함수'
+-- GROUP BY 절과 함께 쓰이는 케이스가 많음
+
+-- 주문 테이블에서 총 판매 개수 검색
+
+SELECT sum(amount) AS 'total_amount' FROM orders;
+
+-- 주문 테이블에서 총 판매 개수 검색 + 의미있는 열이름으로 변경 (total_sales)
+
+-- 주문 테이블에서 총 판매 개수, 평균 판매 개수, 상품 최저가, 상품 최고가 검색
+SELECT sum(amount) AS 'total_amount', avg(amount) as 'avg_amount', min(price) as 'min_price', max(price) as 'max_price' FROM orders;
+    
+-- 주문 테이블에서 총 주문 건수 (= 튜플 개수)
+SELECT count(*) FROM orders;
+
+-- 주문 테이블에서 주문한 고객 수 
+SELECT count(DISTINCT custid) FROM orders;
+
+
+
+-- <GROUP BY> 
+-- "~별로" : 
+
+-- 고객별로 주문한 주문 건수 구하기
+SELECT custid, count(*) FROM orders GROUP BY custid;
+
+-- 고객별로 주문한 상품 총 수량 구하기
+SELECT custid, SUM(amount) FROM orders GROUP BY custid;
+
+-- 고객별로 주문한 총 주문액 구하기
+SELECT custid, SUM(price*amount) FROM orders GROUP BY custid;
+SELECT*FROM orders;
+
+-- 상품별 판매 개수 구하기
+SELECT prodname, SUM(amount) FROM orders GROUP BY prodname;
+
+-- <HAVING>
+-- GROUP BY 절 이후 추가 조건 : 그룹에 대해서 필터링(group by 보다 뒤에 위치)
+-- vs WHERE 각각의 행을 필터링하는 것 (group by 보다 앞에 위치)
+--    집계함수를 쓸 수는 있으나, 제약이 있음
+
+-- 총 주문액이 10000원 이상인 고객에 대해 고객별로 주문한 상품 총 수량 구하기
+SELECT custid, SUM(amount), SUM(price*amount) FROM orders GROUP BY custid HAVING SUM(price*amount) >= '10000';
+
+-- 에러 : 그룹코드가 잘못되었습니다, where로는 조건 부가할 수 없다
+SELECT custid, SUM(amount), SUM(price*amount) FROM orders where SUM(price*amount) >= '10000' GROUP BY custid;
+
+-- 총 주문액이 10000원 이상인 고객에 대해 고객별로 주문한 상품 총 수량 구하기(단, custid 가 'bunny'인 고객은 제외하고 출력)
+SELECT custid, SUM(amount), SUM(price*amount) FROM orders 
+WHERE custid != 'bunny'
+GROUP BY custid HAVING SUM(price*amount) >= '10000';
