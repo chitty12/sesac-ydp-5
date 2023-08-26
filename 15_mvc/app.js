@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = 8080;
 const path = require('path');
+const indexRouter = require('./routes/index');
 
 app.set('view engine', 'ejs');
 app.set('/views', path.join(__dirname, 'views'));
@@ -11,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // indexRouter에서는 localhost:PORT/ 가 기본경로이다.
-const indexRouter = require('./routes/index');
+
 app.use('/', indexRouter);
 
 // 404 error 처리
