@@ -29,5 +29,21 @@ exports.getresult = (req, res) => {
 };
 
 exports.axi = (req, res) => {
+  console.log(tempUser.users);
+
+  const users = tempUser.users.split('\n');
+  const user = users.forEach(() => {
+    return users.split('//');
+  });
+  console.log(user);
+  // for (i = 0; i <= users.length; i++) {
+  //   const ids = users[i].split('//');
+  //   const pws = users[i].split('//');
+  //   const names = users[i].split('//');
+  // }
+  // console.log(id[0]);
+  // console.log(pw[0]);
+  // console.log(names[0]);
+
   res.send({ tempUser: tempUser.tempUser() });
 };
