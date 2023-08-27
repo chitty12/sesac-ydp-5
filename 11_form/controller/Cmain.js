@@ -5,7 +5,7 @@ const tempUser = require('../model/join');
 exports.upload = multer({
   storage: multer.diskStorage({
     destination(req, file, done) {
-      done(null, 'uploads/');
+      done(null, 'model/uploads/');
     },
     filename(req, file, done) {
       const ext = path.extname(file.originalname);
@@ -29,5 +29,5 @@ exports.getresult = (req, res) => {
 };
 
 exports.axi = (req, res) => {
-  res.render('get_ex', { tempUser: tempUser.tempUser() });
+  res.send({ tempUser: tempUser.tempUser() });
 };

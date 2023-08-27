@@ -169,13 +169,14 @@
           url: '/axios',
           data: data,
         }).then(function (res) {
-          console.log(res);
-
+          console.log(res.data);
+          const tempUser = res.data.tempUser[0]
           if(!form.id.checkValidity() || !form.pw.checkValidity()) {
             result[1].textContent = `아이디와 비밀번호를 입력해주세요`;
             result[1].style.color = 'red';
             result[1].style.fontWeight = 900;
-          } else if(id === res.tempUse && pw === tempUser.temppw)
+           }
+           else if(id === tempUser.tempid && pw === tempUser.temppw)
             {result[1].textContent = `${id}님 로그인에 성공하셨습니다!`;
             result[1].style.color = 'blue';
             result[1].style.fontWeight = 900;
