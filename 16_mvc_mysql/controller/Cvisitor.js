@@ -18,8 +18,19 @@ exports.getVisitors = (req, res) => {
 exports.postVisitor = (req, res) => {
   console.log(req.body); // {name: , comment: }
   const { name, comment } = req.body;
+
   Visitor.postVisitor(req.body, (insertId) => {
     console.log('controller>>', insertId);
     res.send({ id: insertId, name: name, comment: comment });
+  });
+};
+
+exports.deleteVisitor = (req, res) => {
+  console.log(req.body);
+  const { id } = req.body;
+
+  Visitor.deleteVisitor(id, (result) => {
+    console.log('controller>>', result);
+    res.send(result);
   });
 };

@@ -40,3 +40,14 @@ exports.postVisitor = (data, callback) => {
     }
   );
 };
+
+exports.deleteVisitor = (id, callback) => {
+  console.log('model >>', id);
+  connection.query(`delete from visitor where id =${id}`, (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    console.log('model>>', rows);
+    callback(true); // {id : id } 로 쓸 수도 있음.
+  });
+};

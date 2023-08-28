@@ -27,11 +27,34 @@ function createVisitor() {
       <button type="button">수정</button>
     </td>
     <td>
-      <button type="button">삭제</button>
+      <button type="button" onclick="deleteVisitor(this, ${id})">삭제</button>
     </td>
   </tr>`;
 
     //   ${'tbody'}.append(newVisitor)
     tbody.insertAdjacentHTML('beforeend', newVisitor);
+  });
+}
+
+function deleteVisitor(obj, id) {
+  console.log(obj, id);
+
+  // confirm은 boolean형태로 반환된다. confirm창에서 '취소'를 누르면 아무일도 일어나지 않음.
+  if (!confirm('정말 삭제할꺼에요?')) {
+    return;
+  }
+
+  //   '확인'을 누르면 visitor 데이터 삭제됨.
+  axios({
+    method: 'delete',
+    url: '/visitor',
+    data: {
+      id: id,
+    },
+  }).then((res) => {
+    console.log('delete/visitor 요청에 대한 응답', res.data);
+    alert('삭제성공!');
+
+    obj.parentElement.parentElement.remove();
   });
 }
