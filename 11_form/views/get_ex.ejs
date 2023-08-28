@@ -172,14 +172,6 @@
           console.log(res.data);
           const tempUser = res.data.tempUser[0]
 
-
-
-          // let userLo = []
-          // push(userLo).user[0].split('//')
-          // push(userLo).user[1].split('//')
-          // push(userLo).user[2].split('//')
-          // console.log(userLo)
-
           if(!form.id.checkValidity() || !form.pw.checkValidity()) {
             result[1].textContent = `아이디와 비밀번호를 입력해주세요`;
             result[1].style.color = 'red';
