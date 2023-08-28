@@ -7,10 +7,12 @@ router.get('/', controller.main);
 
 router.get('/signup', controller.signup);
 
-router.post('/signup', controller.sign_in);
+router.post('/signup', controller.register);
 
 router.get('/sign_in', controller.sign_in);
 
-// router.post('/profile', controller.profile);
+router.post('/sign_in', controller.login);
+
+router.post('/profile', controller.profile);
 
 module.exports = router;

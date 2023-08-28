@@ -13,13 +13,27 @@ const connection = mysql.createConnection(conn);
 
 exports.register = (data, callback) => {
   connection.query(
-    `insert into user values(null, "${data.userid}", "${data.name}", "${data.password}")`,
+    `insert into user values(null, "${data.userid}", "${data.nickname}", "${data.password}")`,
     (err, rows) => {
       if (err) {
         throw err;
       }
-      console.log(rows);
-      //   callback(rows.insertId);
+      console.log('user', rows);
+      callback(rows.insertId);
+    }
+  );
+};
+
+exports.login = (data, cb) => {
+  connection.query(
+    `select userid, name, pw from user where userid = '${data.userid}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      if (rows) {
+        return cb(rows);
+      } else cb([{ id: 'false' }]);
     }
   );
 };
