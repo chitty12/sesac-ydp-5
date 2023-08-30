@@ -40,13 +40,30 @@
     </form>
 
     <script>
+      const form = document.forms['form_profile'];
       // TODO: [Login] 버튼 클릭시 서버에 회원 정보 수정 요청하기
       // POST /user/profile/edit
       function profileEdit() {}
 
       // TODO: [Login] 버튼 클릭시 서버에 회원 정보 삭제 요청하기
       // POST /user/profile/delete
-      function profileDelete() {}
+      function profileDelete() {
+        if (!confirm('정말 삭제하시겠습니까?')) {
+          return;
+        }
+
+        axios({
+          method: 'delete',
+          url: '/profile/delete',
+          data: {
+            userid: form.userid.value,
+          },
+        }).then((res) => {
+          console.log(res);
+          alert('회원탈퇴 성공!');
+          document.location.href = '/';
+        });
+      }
     </script>
   </body>
 </html>

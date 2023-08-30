@@ -15,4 +15,6 @@ router.post('/sign_in', controller.login);
 
 router.post('/profile', controller.profile);
 
+router.delete('/profile/delete', controller.delete);
+
 module.exports = router;

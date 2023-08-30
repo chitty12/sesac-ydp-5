@@ -10,11 +10,10 @@ exports.signup = (req, res) => {
 };
 
 exports.register = (req, res) => {
-  console.log(req.body);
+  console.log(req.body.userid);
 
-  userInfo.register(req.body, () => {
-    res.send({ userid: req.body.userid, pw: req.body.password });
-  });
+  userInfo.register(req.body, () => {});
+  res.send({ userid: req.body.userid });
 };
 
 exports.sign_in = (req, res) => {
@@ -41,4 +40,11 @@ exports.profile = (req, res) => {
   console.log(req.body);
   const { userid, password, name } = req.body;
   res.render('profile', { userid: userid, password: password, name: name });
+};
+
+exports.delete = (req, res) => {
+  console.log('요청', req.body);
+  userInfo.delete(req.body, (result) => {
+    res.send(result);
+  });
 };

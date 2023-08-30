@@ -7,7 +7,7 @@
       <label for="userid">ID</label>
       <input id="userid" type="text" name="userid" required /><br />
       <label for="password">Password</label>
-      <input id="password" type="password" name="pw" required /><br />
+      <input id="password" type="password" name="password" required /><br />
       <label for="nickname">Name </label>
       <input id="nickname" type="text" name="name" required /><br />
       <button type="button" onclick="register();">Register</button>
@@ -27,9 +27,10 @@
           data: {
             userid: form.userid.value,
             password: form.password.value,
-            nickname: form.name.value,
+            name: form.name.value,
           },
-        }).then(() => {
+        }).then((res) => {
+          alert(`${res.data.userid}님 환영합니다`);
           document.location.href = '/sign_in';
         });
       }

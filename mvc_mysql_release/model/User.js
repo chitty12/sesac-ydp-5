@@ -13,7 +13,7 @@ const connection = mysql.createConnection(conn);
 
 exports.register = (data, callback) => {
   connection.query(
-    `insert into user values(null, "${data.userid}", "${data.nickname}", "${data.password}")`,
+    `insert into user values(null, "${data.userid}", "${data.name}", "${data.password}")`,
     (err, rows) => {
       if (err) {
         throw err;
@@ -33,6 +33,19 @@ exports.login = (data, cb) => {
       }
       console.log(rows);
       cb(rows);
+    }
+  );
+};
+
+exports.delete = (data, cb) => {
+  connection.query(
+    `delete from user where userid ='${data.userid}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      console.log('model>>', rows);
+      cb(true);
     }
   );
 };
