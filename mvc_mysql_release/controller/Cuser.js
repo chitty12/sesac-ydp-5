@@ -48,3 +48,11 @@ exports.delete = (req, res) => {
     res.send(result);
   });
 };
+
+exports.profileEdit = (req, res) => {
+  console.log(req.body);
+
+  userInfo.profileEdit(req.body, () => {
+    res.send('true');
+  });
+};

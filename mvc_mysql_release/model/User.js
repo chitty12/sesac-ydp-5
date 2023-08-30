@@ -49,3 +49,15 @@ exports.delete = (data, cb) => {
     }
   );
 };
+
+exports.profileEdit = (data, cb) => {
+  const { userid, password, name } = data;
+  const sql = `update user set pw = '${password}', name = '${name}' where userid ='${userid}'`;
+  connection.query(sql, (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    console.log(rows);
+    cb(true);
+  });
+};
