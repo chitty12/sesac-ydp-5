@@ -100,22 +100,22 @@ function editDo(id) {
     },
   }).then((res) => {
     console.log(res.data);
-
+    console.dir(form);
     const { isUpdated } = res.data;
     if (isUpdated) {
       alert('수정 완료!');
-
-      const tr = document.querySelector(`#tr_${id}`).children;
-      tr[1].textContent = form.name.value;
-      tr[2].textContent = form.comment.value;
-
-      form.name.value = '';
-      form.comment.value = '';
     }
-  });
+    const tr = document.querySelector(`#tr_${id}`).children;
 
-  // 수정 작업 이루어지고 나서, input 초기화 & [등록] 버튼 보이기
-  notEdit();
+    tr[1].textContent = form.name.value;
+    tr[2].textContent = form.comment.value;
+
+    form.name.value = '';
+    form.comment.value = '';
+
+    // 수정 작업 이루어지고 나서, input 초기화 & [등록] 버튼 보이기
+    notEdit();
+  });
 }
 
 function notEdit() {
