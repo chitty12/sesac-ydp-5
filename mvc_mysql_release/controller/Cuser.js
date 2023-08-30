@@ -26,15 +26,19 @@ exports.login = (req, res) => {
   const { userid, password } = req.body;
 
   userInfo.login(req.body, (rows) => {
-    res.send({
-      id: rows.id,
-      userid: rows.userid,
-      password: rows.pw,
-      name: rows.name,
-    });
+    if (rows.length !== 0)
+      res.send({
+        id: rows[0].id,
+        userid: rows[0].userid,
+        password: rows[0].pw,
+        name: rows[0].name,
+      });
+    else res.send('false');
   });
 };
 
 exports.profile = (req, res) => {
-  res.render('profile');
+  console.log(req.body);
+  const { userid, password, name } = req.body;
+  res.render('profile', { userid: userid, password: password, name: name });
 };

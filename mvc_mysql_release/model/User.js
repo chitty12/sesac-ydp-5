@@ -26,14 +26,13 @@ exports.register = (data, callback) => {
 
 exports.login = (data, cb) => {
   connection.query(
-    `select userid, name, pw from user where userid = '${data.userid}'`,
+    `select userid, name, pw from user where userid = '${data.userid}' and pw = '${data.password}'`,
     (err, rows) => {
       if (err) {
         throw err;
       }
-      if (rows) {
-        return cb(rows);
-      } else cb([{ id: 'false' }]);
+      console.log(rows);
+      cb(rows);
     }
   );
 };
