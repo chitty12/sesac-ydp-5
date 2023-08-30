@@ -34,3 +34,22 @@ exports.deleteVisitor = (req, res) => {
     res.send(result);
   });
 };
+
+exports.getVisitor = (req, res) => {
+  //  console.log(req.query) : 쿼리스트링을 요청했을 때 정보가 담긴다(/visitor?id=5)
+  console.log(req.params);
+  const { id } = req.params;
+  Visitor.getVisitor(id, (result) => {
+    // result: 모델의 getVisitor callback 의 인자 (rows)
+    console.log(result);
+    res.send(result);
+  });
+};
+
+exports.editDo = (req, res) => {
+  console.log(req.body); //id, comment, name
+
+  Visitor.editDo(req.body, () => {
+    res.send({ isUpdated: true });
+  });
+};
