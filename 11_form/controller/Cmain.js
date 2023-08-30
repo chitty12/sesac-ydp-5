@@ -32,14 +32,9 @@ exports.axi = (req, res) => {
   console.log(tempUser.users);
 
   const users = tempUser.users.split('\n');
-
-  for (i = 0; i < users.length; i++) {
-    const ids = [];
-    push.users[i].split('//')[0];
-    const pws = [];
-    push.users[i].split('//')[1];
-    const names = [];
-    push.users[i].split('//')[2];
+  console.log(user);
+  for (let user of users) {
+    user.split('//')[0];
   }
 
   res.send({ tempUser: tempUser.tempUser() });
