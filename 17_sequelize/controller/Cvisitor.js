@@ -3,6 +3,24 @@
 // 구조분해
 const { Visitor } = require('../models'); //../models/index.js
 
+function times(date) {
+  let yy = date.getFullYear();
+  let mon = date.getMonth();
+  let day = date.getDay();
+  let ti; // AM , PM
+  let hh = date.getHours(); // 시간
+  let mm = date.getMinutes(); // 분
+  let ss = date.getSeconds(); // 초
+
+  ti = hh < 12 ? '오전' : '오후';
+  hh = hh > 12 ? hh - 12 : hh;
+  hh = hh < 10 ? `0${hh}` : hh;
+  mm = mm < 10 ? `0${mm}` : mm;
+  ss = ss < 10 ? `0${ss}` : ss;
+
+  return `${yy}년 ${mon}월 ${day}일 ${ti} ${hh} : ${mm} : ${ss}`;
+}
+
 exports.main = (req, res) => {
   res.render('index');
 };
@@ -16,8 +34,12 @@ exports.getVisitors = async (req, res) => {
 
   // [after]
   const result = await Visitor.findAll();
-  console.log(result);
-  res.render('visitor', { data: result });
+  // console.log(result[0].createdAt);
+
+  res.render('visitor', {
+    data: result,
+    createdAt: await times(result[0].createdAt),
+  });
 };
 
 exports.postVisitor = async (req, res) => {
@@ -33,11 +55,14 @@ exports.postVisitor = async (req, res) => {
   // [after]
   const { name, comment } = req.body;
   const result = await Visitor.create({
-    name,
-    comment,
+    name: name,
+    comment: comment,
   });
-  console.log(result); // create 메서드가 실행된 결과 (insert한 데이터값)
-  res.send(result);
+  console.log(result.createdAt); // create 메서드가 실행된 결과 (insert한 데이터값)
+  res.send({
+    result,
+    timecreated: await times(result.createdAt),
+  });
 };
 
 exports.deleteVisitor = async (req, res) => {
@@ -93,5 +118,9 @@ exports.editDo = async (req, res) => {
       where: { id: req.body.id },
     }
   );
-  res.send({ isUpdated: true });
+
+  const result = await Visitor.findOne({
+    where: { id: req.body.id },
+  });
+  res.send({ isUpdated: true, timeupdate: times(result.updatedAt) });
 };

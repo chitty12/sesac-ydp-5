@@ -20,6 +20,14 @@ const Visitor = (Sequelize, DataTypes) => {
         // comment MEDIUMTEXT
         type: DataTypes.TEXT('medium'),
       },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
     },
     {
       tableName: 'visitor', // 실제 db 테이블명

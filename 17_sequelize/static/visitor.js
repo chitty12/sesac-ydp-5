@@ -16,19 +16,24 @@ function createVisitor() {
       comment: form.comment.value,
     },
   }).then((res) => {
-    const { id, name, comment } = res.data;
+    console.log(res.data);
+    const { id, name, comment } = res.data.result;
 
     // newVisitor 변수에 tr 요소를 생성하고, tbody 의 맨마지막 요소로 추가
     const newVisitor = `<tr id="tr_${id}">
     <td>${id}</td>
     <td>${name}</td>
     <td>${comment}</td>
+
     <td>
       <button type="button" onclick="editVisitor(${id})">수정</button>
     </td>
     <td>
       <button type="button" onclick="deleteVisitor(this, ${id})">삭제</button>
     </td>
+
+    <td>${res.data.timecreated}</td>
+    <td></td>
   </tr>`;
 
     //   ${'tbody'}.append(newVisitor)
@@ -101,7 +106,7 @@ function editDo(id) {
   }).then((res) => {
     console.log(res.data);
     console.dir(form);
-    const { isUpdated } = res.data;
+    const { isUpdated, timeupdate } = res.data;
     if (isUpdated) {
       alert('수정 완료!');
     }
@@ -109,7 +114,7 @@ function editDo(id) {
 
     tr[1].textContent = form.name.value;
     tr[2].textContent = form.comment.value;
-
+    tr[6].textContent = `${timeupdate}`;
     form.name.value = '';
     form.comment.value = '';
 
