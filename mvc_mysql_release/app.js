@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = 8000;
+const db = require('./models');
 
 app.set('view engine', 'ejs');
 app.use('/views', express.static(__dirname + '/views'));
@@ -19,6 +20,9 @@ app.get('*', (req, res) => {
   res.render('404');
 });
 
-app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}/user`);
+// force: false ; '실제 데이터베이스에 테이블이 존재하지 않으면' 모델에 정의한대로 생성한다
+db.sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => {
+    console.log(`http://localhost:${PORT}/user`);
+  });
 });
