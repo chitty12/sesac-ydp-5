@@ -38,6 +38,9 @@ DELETE {{server}}/players/{{player_id}}
 ### 전체 팀 조회
 GET {{server}}/teams
 
+### 전체 팀 조회 - 이름순으로
+GET {{server}}/teams?sort=name_asc
+
 ### 특정 팀 조회
 GET {{server}}/teams/{{team_id}}
 
