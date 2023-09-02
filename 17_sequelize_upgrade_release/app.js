@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const PORT = 8080;
-const router = require('./routes');
-const { sequelize } = require('./models');
+const router = require('./routes/index_ex');
+const { sequelize } = require('./models/index_ex');
 
 app.set('view engine', 'ejs');
 app.set('views', './views');

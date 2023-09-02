@@ -1,0 +1,40 @@
+@server = http://localhost:8080
+@custid = jjjeee
+@prodname = 프링글스
+@custname = 강민지
+
+
+GET {{server}}/customer
+
+### 고객 정보 추가
+POST {{server}}/customer
+Content-Type: application/json; charset=UTF-8
+
+{
+    "custid": "chitty",
+    "custname": "최태영",
+    "addr": "서울 강서구",
+    "phone": "01033391236",
+    "birth": "1990-10-30",
+}
+
+### 고객 정보 삭제
+DELETE {{server}}/customer/{{custid}}
+
+
+### 특정고객의 주소 변경
+PATCH {{server}}/customer/{{custid}}/addr
+Content-Type: application/json; charset=UTF-8
+
+{
+    "addr": "대한민국 서울"
+}
+
+### 고객 이름과 고객이 주문한 상품명, 상품 가격 조회
+POST {{server}}/customer/{{custid}}
+
+
+### 고객 이름별로 주문한 제품 총 구매액을 고객별로 정렬
+POST {{server}}/Price
+
+

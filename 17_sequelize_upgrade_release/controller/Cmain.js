@@ -85,26 +85,33 @@ exports.deletePlayer = async (req, res) => {
 
 exports.getTeams = async (req, res) => {
   try {
+    // 쿼리 스트링 꺼내오기 (req.query)
     console.log(req.query);
-    const { sort } = req.query;
+    const { sort, search } = req.query;
     let teams;
 
+    // sort 키가 있으면 name 기준 오름차순 정렬
     if (sort === 'name_asc') {
       teams = await Team.findAll({
-        attributes: ['team_id', 'name'], // 특정 속성만 보내고 싶을 때 지정가능.
-        order: ['name', 'ASC'],
+        attributes: ['team_id', 'name'],
+        order: [['name', 'asc']],
       });
     } else if (search) {
-      // search key 에 대한 값이 있다면
+      // search key에 대한 값이 있다면
       teams = await Team.findAll({
         attributes: ['team_id', 'name'],
-        where: { name: { [Op.like]: `%${search}%` } },
+        where: {
+          name: { [Op.like]: `%${search}%` },
+        },
       });
+      // select * from teams where name = '%KT%';
     } else {
+      // 없으면 findAll()
       teams = await Team.findAll({
-        attributes: ['team_id', 'name'], // 특정 속성만 보내고 싶을 때 지정가능.
+        attributes: ['team_id', 'name'],
       });
     }
+
     res.send(teams);
   } catch (err) {
     console.error(err);
@@ -134,42 +141,6 @@ exports.getTeamPlayers = async (req, res) => {
       include: [{ model: Player }], // Join같은 역할
     });
     res.send(team);
-  } catch (err) {
-    console.error(err);
-    res.send('Internal Server Error!!!');
-  }
-};
-
-exports.getTeams = async (req, res) => {
-  try {
-    // 쿼리 스트링 꺼내오기 (req.query)
-    console.log(req.query);
-    const { sort, search } = req.query;
-    let teams;
-
-    // sort 키가 있으면 name 기준 오름차순 정렬
-    if (sort === 'name_asc') {
-      teams = await Team.findAll({
-        attributes: ['team_id', 'name'],
-        order: [['name', 'asc']],
-      });
-    } else if (search) {
-      // search key에 대한 값이 있다면
-      teams = await Team.findAll({
-        attributes: ['team_id', 'name'],
-        where: {
-          name: { [Op.like]: `%${search}%` },
-        },
-      });
-      // select * from teams where name = '%KT%';
-    } else {
-      // 없으면 findAll()
-      teams = await Team.findAll({
-        attributes: ['team_id', 'name'],
-      });
-    }
-
-    res.send(teams);
   } catch (err) {
     console.error(err);
     res.send('Internal Server Error!!!');
