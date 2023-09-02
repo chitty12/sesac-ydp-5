@@ -5,8 +5,8 @@ const { Visitor } = require('../models'); //../models/index.js
 
 function times(date) {
   let yy = date.getFullYear();
-  let mon = date.getMonth();
-  let day = date.getDay();
+  let mon = date.getMonth() + 1;
+  let day = date.getDate();
   let ti; // AM , PM
   let hh = date.getHours(); // 시간
   let mm = date.getMinutes(); // 분
@@ -38,7 +38,7 @@ exports.getVisitors = async (req, res) => {
 
   res.render('visitor', {
     data: result,
-    createdAt: await times(result[0].createdAt),
+    createdAt: times(result[0].createdAt),
   });
 };
 
@@ -61,7 +61,7 @@ exports.postVisitor = async (req, res) => {
   console.log(result.createdAt); // create 메서드가 실행된 결과 (insert한 데이터값)
   res.send({
     result,
-    timecreated: await times(result.createdAt),
+    timecreated: times(result.createdAt),
   });
 };
 
