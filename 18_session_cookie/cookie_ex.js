@@ -14,7 +14,7 @@ app.use(cookieParser());
 
 const myCookieConf = {
   httpOnly: true,
-  maxAge: 20 * 1000,
+  maxAge: 60 * 1000,
 };
 
 app.get('/', (req, res) => {

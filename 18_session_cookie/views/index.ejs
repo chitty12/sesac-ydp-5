@@ -96,32 +96,25 @@
         myModal.hide();
       }
 
-
       // TODO: 모달 닫기 버튼 클릭 함수 완성
       function closeModal() {
         // 1. 체크 박스가 체크되어 있다면 (오늘 하루 보지 않음을 선택했다면)
         // POST /setCookie 요청 보내기 (back에서 popup 쿠키 설정하기)
-        const
-        const checkV = checkbox.checked
-        axios ({
+        const checkbox = document.querySelector('#cookie');
+        const checkV = checkbox.checked;
+        console.log(checkV);
+        if (checkV) {
+          axios({
             method: 'post',
             url: '/setcookie',
-            data: {
-                popup:
+          }).then((res) => {
+            // 2. js로 모달 닫기 수행 (위 참고 링크 확인)
 
-            },
-        })
-        .then ((res)=> {
-            const {} = res.data
-        })
-
-
-        if () {
-
-
-        } else {}
-
-        // 2. js로 모달 닫기 수행 (위 참고 링크 확인)
+            myModal.hide();
+          });
+        } else {
+          myModal.hide();
+        }
       }
     </script>
   </body>
