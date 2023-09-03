@@ -1,6 +1,6 @@
-const { sequelize } = require('../models');
+const { sequelize } = require('../models/index_ex');
 const { Customer, Orders } = require('../models/index_ex');
-const { op } = require('sequelize');
+const { Op } = require('sequelize');
 
 exports.getCustomer = async (req, res) => {
   try {
@@ -85,22 +85,20 @@ exports.totalP = async (req, res) => {
   try {
     const totalPrice = sequelize.fn('SUM', sequelize.literal('amount*price'));
 
-
-    
     const nameTotal = await Customer.findAll({
-      attributes: [[totalPrice, 'total_price'], 'custid'],
+      attributes: ['custname', [totalPrice, 'total_price']],
       include: [
         {
           model: Orders,
           attributes: [],
-          order: [sequelize.literal('total_price'), 'DESC'],
+          where: { custid: { [Op.ne]: null } },
         },
       ],
-      group: ['custid'],
+      group: ['custname'],
+      order: [[sequelize.literal('total_price'), 'desc']],
     });
-    
-      res.send(nameTotal);
-    }
+
+    res.send(nameTotal);
   } catch (err) {
     console.log(err);
     res.send('뭔가 에러가 있다');
