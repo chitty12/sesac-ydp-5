@@ -86,7 +86,7 @@ exports.totalP = async (req, res) => {
     const totalPrice = sequelize.fn('SUM', sequelize.literal('amount*price'));
 
     const nameTotal = await Customer.findAll({
-      attributes: ['custid', [totalPrice, 'total_price']],
+      attributes: ['custname', [totalPrice, 'total_price']],
       include: [
         {
           model: Orders,
@@ -94,7 +94,7 @@ exports.totalP = async (req, res) => {
           where: { custid: { [Op.ne]: null } },
         },
       ],
-      group: ['custid'],
+      group: ['custname'],
       order: [[sequelize.literal('total_price'), 'desc']],
     });
 
