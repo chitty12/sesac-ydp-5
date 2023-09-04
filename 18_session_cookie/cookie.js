@@ -3,12 +3,16 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const PORT = 9000;
 
+const { prototype } = require('events');
+const dotenv = require('dotenv');
+dotenv.config();
+
 app.set('view engine', 'ejs');
 
 // 미들웨어 등록
 // app.use(cookieParser()); //일반쿠키
 
-const COOKIE_SECRET_KEY = 'this is my secret key';
+const COOKIE_SECRET_KEY = process.env.COOKIE_SECRET_KEY;
 
 app.use(cookieParser(COOKIE_SECRET_KEY)); // 암호화 쿠키
 const myCookieConf = {
