@@ -47,11 +47,11 @@ app.get('/login', (req, res) => {
 app.post('/login', (req, res) => {
   // TODO: 정답 아이디와 폼에 적힌 아이디, 정답 비번과 폼에 적힌 비번 비교
   const { id, pw } = userInfo;
-  console.log(id);
-  if (req.body.id === id && req.body.pw === pw) {
-    // req.session.user = req.body.id;
 
-    res.redirect('index');
+  if (req.body.id === id && req.body.pw === pw) {
+    req.session.user = req.body.id;
+    console.log(req.session.user);
+    res.render('index', { isLogin: true, userid: req.session.user });
   } else {
     res.send(`<script>alert ('로그인 실패!');
     document.location.href = '/'</script>`);
@@ -64,6 +64,13 @@ app.post('/login', (req, res) => {
 // GET /logout 요청시;
 app.get('/logout', (req, res) => {
   // TODO: 세션 삭제
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.redirect('/login');
+  });
 });
 
 app.listen(PORT, () => {
