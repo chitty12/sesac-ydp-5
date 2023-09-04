@@ -11,17 +11,16 @@ const userInfo = (Sequelize, DataTypes) => {
         allowNull: false,
       },
       userid: {
-        type: DataTypes.STRING(20),
-
+        type: DataTypes.STRING(15),
         allowNull: false,
       },
       name: {
-        type: DataTypes.STRING(10),
+        type: DataTypes.STRING(15),
 
         allowNull: false,
       },
       password: {
-        type: DataTypes.STRING(20),
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
     },

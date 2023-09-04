@@ -31,9 +31,8 @@ exports.sign_in = (req, res) => {
 };
 
 exports.login = async (req, res) => {
+  const { userid, password } = req.body;
   // [before]
-  // const { userid, password } = req.body;
-
   // userInfo.login(req.body, (rows) => {
   //   if (rows.length !== 0)
   //     res.send({
@@ -45,13 +44,25 @@ exports.login = async (req, res) => {
   //   else res.send('false');
   // });
 
-  const { userid, password } = req.body;
+  //  [sequelize not session]
+  //   const result = await userInfo.findOne({
+  //     where: { userid: userid, password: password },
+  //   });
+  //   console.log(result);
+  //   if (result) {
+  //     res.send(result);
+  //   } else {
+  //     res.send('false');
+  //   }
+
   const result = await userInfo.findOne({
     where: { userid: userid, password: password },
   });
-  console.log(result);
+
   if (result) {
-    res.send(result);
+    req.session.user = userid;
+    req.session.pw = password;
+    res.render('profile');
   } else {
     res.send('false');
   }

@@ -19,4 +19,6 @@ router.delete('/profile/delete', controller.delete);
 
 router.patch('/profile', controller.profileEdit);
 
+router.get('/allmem', controller.allmem);
+
 module.exports = router;
