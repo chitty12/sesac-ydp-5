@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <%- include('include/include', { title: '전체 회원' })%>
+  <body>
+    <h1>전체 회원 리스트</h1>
+    <a href="/">HOME</a>
+    <a href="/profile">내 프로필</a>
+
+    <ul>
+      <%for (let id of userIDs) {%>
+      <li><%= id.userid%></li>
+      <%}%>
+    </ul>
+  </body>
+</html>

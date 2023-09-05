@@ -1,8 +1,15 @@
 // TODO: 컨트롤러 코드
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const { userInfo } = require('../models/index');
 
 exports.main = (req, res) => {
-  res.render('index');
+  const userOne = req.session.userid;
+  if (userOne) {
+    res.render('index', { userOne: true, name: req.session.name });
+  } else {
+    res.render('index', { userOne: false });
+  }
 };
 
 exports.signup = (req, res) => {
@@ -15,14 +22,16 @@ exports.register = async (req, res) => {
   // userInfo.register(req.body, () => {});
   // res.send({ userid: req.body.userid });
   const { userid, name, password } = req.body;
+
+  const hashedPw = bcrypt.hashSync(password, saltRounds);
   await userInfo.create({
     // id: autoincrement이므로 따로 지정할 필요가 없다...?
     userid: userid,
-    password: password,
+    password: hashedPw,
     name: name,
   });
 
-  res.send({ userid: req.body.userid });
+  res.send({ name: req.body.name, userid: req.body.userid });
 };
 
 exports.sign_in = (req, res) => {
@@ -55,23 +64,32 @@ exports.login = async (req, res) => {
   //     res.send('false');
   //   }
 
-  const result = await userInfo.findOne({
-    where: { userid: userid, password: password },
+  const userCol = await userInfo.findOne({
+    where: { userid: userid },
   });
 
-  if (result) {
-    req.session.user = userid;
-    req.session.pw = password;
-    res.render('profile');
+  function comparePw(pw, hPw) {
+    return bcrypt.compareSync(pw, hPw);
+  }
+
+  const isMatch = comparePw(password, userCol.password);
+
+  if (isMatch) {
+    req.session.userid = userid;
+    req.session.name = userCol.name;
+    req.session.pw = userCol.password;
+    res.send({ userid: req.session.userid, name: req.session.name });
   } else {
     res.send('false');
   }
 };
 
 exports.profile = (req, res) => {
-  console.log(req.body);
-  const { userid, password, name } = req.body;
-  res.render('profile', { userid: userid, password: password, name: name });
+  res.render('profile', {
+    userid: req.session.userid,
+    password: req.session.pw,
+    name: req.session.name,
+  });
 };
 
 exports.delete = async (req, res) => {
@@ -80,11 +98,19 @@ exports.delete = async (req, res) => {
   // userInfo.delete(req.body, (result) => {
   //   res.send(result);
   // });
+
   const { userid } = req.body;
   await userInfo.destroy({
     where: { userid: userid },
   });
-  res.send('true');
+
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.send('true');
+  });
 };
 
 exports.profileEdit = async (req, res) => {
@@ -94,12 +120,20 @@ exports.profileEdit = async (req, res) => {
   //   res.send('true');
   // });
   const { userid, password, name } = req.body;
+
+  const hashedPw = bcrypt.hashSync(password, saltRounds);
   await userInfo.update(
     {
-      password: password,
+      password: hashedPw,
       name: name,
     },
     { where: { userid: userid } }
   );
   res.send('true');
+};
+
+exports.allmem = async (req, res) => {
+  const allmem = await userInfo.findAll({ attributes: ['userid'] });
+  console.log(allmem.userid);
+  res.render('allmem', { userIDs: allmem });
 };

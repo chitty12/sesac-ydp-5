@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const app = express();
 const PORT = 8000;
 const db = require('./models');
@@ -8,6 +9,19 @@ app.use('/views', express.static(__dirname + '/views'));
 app.use('/static', express.static(__dirname + '/static'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// session 미들웨어/ 옵션 객체 추가
+app.use(
+  session({
+    secret: 'SecretKey',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      httpOnly: true,
+      maxAge: 600 * 1000,
+    },
+  })
+);
 
 // TODO: 라우팅 분리
 // 기본 주소: localhost:PORT/user <- 주의!!

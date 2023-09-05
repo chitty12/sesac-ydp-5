@@ -8,11 +8,12 @@
       userid 정보를 value에 저장(POST /user/signin 요청의 응답을 받은 후 수행)하여
       폼(input)이 보이지 않도록 hidden 처리함
     -->
-    <form name="form_info" action="/profile" method="POST">
+    <!-- not session ver.
+      <form name="form_info" action="/profile" method="POST">
       <input type="hidden" name="userid" />
       <input type="hidden" name="password" />
       <input type="hidden" name="name" />
-    </form>
+    </form> -->
 
     <form name="form_login">
       <label for="userid">ID</label>
@@ -24,7 +25,7 @@
 
     <!-- TODO: href 속성값 설정하기 -->
     <a href="/signup">Register</a>
-    <a href="/allmem">전체회원</a>
+    <a href="/">전체회원</a>
 
     <script>
       // TODO: [Login] 버튼 클릭시 서버에 로그인 요청하기
@@ -41,19 +42,22 @@
             password: form.password.value,
           },
         })
+          // .then((res) => {
+          //   console.log(res);
+          //   return res.data;
+          // })
           .then((res) => {
-            console.log(res);
-            return res.data;
-          })
-          .then((res) => {
-            const { userid, password, name } = res;
-            console.log(res);
+            const { userid, name } = res.data;
+            console.log(res.data);
             if (res) {
-              alert('로그인 성공!');
-              form_info.userid.value = res.userid;
-              form_info.password.value = res.password;
-              form_info.name.value = res.name;
-              form_info.submit();
+              alert(`${name}님 안녕하세요!`);
+
+              document.location.href = '/';
+              // [not session ver. : 바로 프로필로 넘어가는 동작
+              // form_info.userid.value = res.userid;
+              // form_info.password.value = res.password;
+              // form_info.name.value = res.name;
+              // form_info.submit();
             } else {
               alert('회원정보가 존재하지 않습니다');
               form_info.reset();
@@ -62,7 +66,6 @@
             }
           });
       }
-      // 실패시 1. 회원정보가 존재하지 않습니다 2. 아이디와 비밀번호가 일치하지 않습니다.
     </script>
   </body>
 </html>

@@ -13,6 +13,8 @@ router.get('/sign_in', controller.sign_in);
 
 router.post('/sign_in', controller.login);
 
+router.get('/profile', controller.profile);
+
 router.post('/profile', controller.profile);
 
 router.delete('/profile/delete', controller.delete);
