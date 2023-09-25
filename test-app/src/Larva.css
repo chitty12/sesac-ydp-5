@@ -1,0 +1,72 @@
+.larva {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.head {
+  background-color: blue;
+  z-index: 4;
+  position: relative;
+  top: 10px;
+  left: 5px;
+}
+
+.eye1 {
+  background-color: white;
+  position: absolute;
+  left: 30px;
+  top: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.eye2 {
+  background-color: black;
+  position: absolute;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.allbody {
+  position: relative;
+  bottom: 60px;
+  left: 60px;
+}
+
+.b1 {
+  background-color: rgb(19, 19, 66);
+  position: absolute;
+  z-index: 6;
+}
+
+.b2 {
+  background-color: rgb(128, 128, 204);
+  position: absolute;
+  top: 5px;
+  left: 45px;
+  z-index: 7;
+}
+
+.b3 {
+  background-color: rgb(52, 52, 63);
+  position: absolute;
+  top: 30px;
+  left: 100px;
+  z-index: 8;
+}
+
+.b4 {
+  background-color: rgb(88, 151, 180);
+  position: absolute;
+  top: 40px;
+  left: 180px;
+  z-index: 10;
+}
+
+.grass {
+  position: absolute;
+  top: 200px;
+  z-index: 9;
+}
