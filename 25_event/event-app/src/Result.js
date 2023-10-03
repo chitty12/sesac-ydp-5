@@ -1,15 +1,20 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-const Result = (Fruits, BackgroundColor, Color) => {
-  const { src, setSrc } = useState('../public/logo512.png');
-  const { BackgroundColor, setBgColor } = useState({
-    BackgroundColor: 'white',
-  });
+const Result = (props) => {
+  console.log(props.result);
+  const { fruits, bgColor, txtColor, text } = props.result;
 
-  src = (Fruits) => {};
+  const src = `../public/${fruits}.png`;
+  console.log(src);
 
-  return;
-  <div style={BackgroundColor}>
-    <img src={src}></img>
-  </div>;
+  return (
+    <div>
+      <img src={src} width="100px" heigh="100px" alt="과일"></img>
+      <p style={{ background: bgColor, color: txtColor, display: 'block' }}>
+        {text}
+      </p>
+    </div>
+  );
 };
+
+export default Result;
