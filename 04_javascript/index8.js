@@ -194,3 +194,24 @@ const me = { name: 'gil dong', gender: 'm', hobby: 'game' };
 for (let key in me) {
   console.log(key, me[key]);
 }
+
+////////////////////////////////
+// reduce() : 배열의 각 요소에 대해서 주어진 리듀서(reducer) 함수를 실행하고, "하나의 결과값" 반환
+// reduce((acc, cur)=> {}, initValue)
+// - acc : 누적되는 값
+// - cur : 현재 요소
+
+// const nums = [1, 2, 3, 4, 5];
+// const result = nums.reduce((accumulater, currentValue) => {
+//   return accumulater + currentValue;
+// });
+
+// console.log(result); // 15
+
+const nums = [1, 2, 3, 4, 5];
+const initialValue = 100;
+const result = nums.reduce((accumulater, currentValue) => {
+  return accumulater + currentValue;
+}, initialValue);
+
+console.log(result); // 15
