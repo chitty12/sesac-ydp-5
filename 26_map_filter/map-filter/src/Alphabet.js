@@ -52,7 +52,10 @@ export default function Alphabet() {
   };
 
   const enterAlpha = (e) => {
-    console.log(e);
+    // bug fix: IME 문제 해결
+    if (e.nativeEvent.isComposing) {
+      return;
+    }
     if (e.keyCode === 13 && inputAlpha.trim().length !== 0) {
       addAlpha();
     }
