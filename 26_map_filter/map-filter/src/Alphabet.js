@@ -31,6 +31,8 @@ export default function Alphabet() {
   const addAlpha = () => {
     // input이 빈값이라면 alphabet 상태가 변경되지 않도록 하기
     if (inputAlpha !== '') {
+      // 빈스페이스는 추가가 될 것!!
+      // trim().length !== 0 이 더 알맞을수도...??
       const newAlpha = alphabet.concat({
         id: alphabet.length + 1,
         alpha: inputAlpha,
@@ -39,6 +41,20 @@ export default function Alphabet() {
       setInputAlpha('');
     } else {
       alert('값을 입력해주세요');
+    }
+  };
+
+  const deleteAlpha = (targetId) => {
+    // targetId: 삭제될 요소의 id
+    console.log(targetId);
+    const newAlpha = alphabet.filter((alpha) => alpha.id !== targetId);
+    setAlphabet(newAlpha);
+  };
+
+  const enterAlpha = (e) => {
+    console.log(e);
+    if (e.keyCode === 13 && inputAlpha.trim().length !== 0) {
+      addAlpha();
     }
   };
 
@@ -51,6 +67,8 @@ export default function Alphabet() {
         onChange={(e) => {
           setInputAlpha(e.target.value);
         }}
+        // input에서 enter 키 누르면 추가되도록
+        onKeyDown={enterAlpha}
       ></input>
       <button onClick={addAlpha}>ADD</button>
       <ol>
@@ -58,7 +76,11 @@ export default function Alphabet() {
           return <li key={idx}>{value}</li>;
         })} */}
         {alphabet.map((value) => {
-          return <li key={value.id}>{value.alpha}</li>;
+          return (
+            <li key={value.id} onDoubleClick={() => deleteAlpha(value.id)}>
+              {value.alpha}
+            </li>
+          );
         })}
       </ol>
     </div>
