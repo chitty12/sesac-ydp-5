@@ -214,4 +214,14 @@ const result = nums.reduce((accumulater, currentValue) => {
   return accumulater + currentValue;
 }, initialValue);
 
-console.log(result); // 15
+console.log(result); // 115
+
+////////////////////////////////////
+// 여러 배열 합칠 때 사용 가능한 메서드
+// 1. concat()
+const arr_1 = [1, 2, 3];
+const arr_2 = [3, 4, 5];
+console.log(arr_1.concat(arr_2));
+
+// 2. ... spread
+console.log([...arr_1, ...arr_2]);
