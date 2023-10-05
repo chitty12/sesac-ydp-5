@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 export default function Map_ex() {
   const [input, setInput] = useState([
@@ -7,8 +7,9 @@ export default function Map_ex() {
       title: '',
     },
   ]);
-
   const [info, setInfo] = useState([]);
+  const refName = useRef();
+  const refTitle = useRef();
 
   const { writer, title } = input;
 
@@ -24,11 +25,30 @@ export default function Map_ex() {
   };
 
   const addInfo = () => {
+    console.log(typeof writer);
+    if (writer === undefined) {
+      return refName.current.focus();
+    } else if (writer.trim().length === 0) {
+      return refName.current.focus();
+    }
+
+    if (title === undefined) {
+      return refTitle.current.focus();
+    } else if (title.trim().length === 0) {
+      return refTitle.current.focus();
+    }
+
     console.log(writer);
     const newInfo = { writer, title };
     console.log(info);
     setInfo([...info, newInfo]);
     setInput({ ...input, writer: '', title: '' });
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      addInfo();
+    }
   };
 
   return (
@@ -43,6 +63,8 @@ export default function Map_ex() {
             id="writer"
             onChange={writerInfo}
             value={writer || ''}
+            ref={refName}
+            onKeyDown={handleKeyDown}
           ></input>
           <label htmlFor="title">제목 : </label>
           <input
@@ -50,8 +72,10 @@ export default function Map_ex() {
             name="title"
             placeholder="제목"
             id="title"
-            value={title || ''}
+            value={title}
             onChange={writerInfo}
+            ref={refTitle}
+            onKeyDown={handleKeyDown}
           ></input>
           <button onClick={addInfo}>작성</button>
         </fieldset>
