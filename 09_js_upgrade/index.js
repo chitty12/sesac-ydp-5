@@ -280,3 +280,31 @@ console.log(tri.getArea());
 const won = new Circle(2, 2, 2);
 console.log(won);
 console.log(won.getArea());
+
+/////////////////////////////////////////////
+// 단축 평가
+// &&, ||
+// A || B : 두 개의 피연산자 중에서 하나만 true 여도 t 반환
+// A && B : 두 개의 피연산자 모두 true일 경우 t 반환
+
+console.log(true && true);
+console.log(false && true); // false
+console.log(true || false); // true
+
+const xx = 4;
+const yy = 5;
+// 삼항 연산자 예시
+const result1 = xx > yy ? 'a' : 'b';
+console.log(result1); //b
+
+// 단축 평가
+const result2 = xx > yy && 'a';
+console.log(result2); // false
+
+const result3 = xx || 100;
+console.log(result3);
+
+const nameEx = '홍길동';
+const nameEx2 = null;
+console.log(nameEx || '이름없음'); //홍길동
+console.log(nameEx2 || '이름없음'); //이름없음
