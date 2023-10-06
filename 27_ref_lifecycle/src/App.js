@@ -1,8 +1,11 @@
 import Ex1 from './Ex1';
+import LifeCycleFuncChild from './LifeCycleFuncChild';
+import LifeCycleFunc from './LifeCycleFunc';
 import RefSample1 from './RefSample1';
 import RefSample2 from './RefSample2';
 import RefSample3 from './RefSample3';
 import RefSample4 from './RefSample4';
+import LifeCycleClass from './LifeCycleClass';
 
 function App() {
   return (
@@ -20,6 +23,11 @@ function App() {
       <RefSample4 />
       <hr></hr>
       <Ex1 />
+      <hr></hr>
+      <LifeCycleFunc />
+      <hr></hr>
+      <LifeCycleClass />
+      <hr></hr>
     </div>
   );
 }
