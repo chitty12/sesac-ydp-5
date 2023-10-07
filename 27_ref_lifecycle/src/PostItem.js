@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react';
 export default function PostItem(postList) {
   const [post, setPost] = useState([]);
 
-  console.log(post);
+  console.log(post.length);
   console.log(postList.post);
   useEffect(() => {
     const fakepost = postList.post;
-    console.log(fakepost);
+
     setTimeout(() => {
       setPost(fakepost);
     }, 4000);
@@ -15,15 +15,23 @@ export default function PostItem(postList) {
 
   return (
     <div>
-      {post.length > 1 ? (
-        <h1>Loading</h1>
+      {post.length === 0 ? (
+        <div>Loading</div>
       ) : (
         post.map((value, idx) => {
-          <h1>Post List</h1>;
           return (
-            <ul key={idx + 1}>
-              <li>{value.id}</li>
-              <li>{value.title}</li>
+            <ul
+              key={idx + 1}
+              style={{
+                margin: '20px auto',
+                listStyle: 'none',
+                background: 'skyblue',
+              }}
+            >
+              <li>
+                No. {value.id} - {value.title}
+              </li>
+
               <li>{value.body}</li>
             </ul>
           );
