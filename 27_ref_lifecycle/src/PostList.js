@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import PostItem from './PostItem';
 
 export default function PostList() {
