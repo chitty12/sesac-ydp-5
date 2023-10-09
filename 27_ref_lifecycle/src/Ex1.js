@@ -7,16 +7,7 @@ export default function Ex1() {
     search: '',
   });
   const { writer, title, search } = inputs;
-  const [comments, setComments] = useState([
-    {
-      writer: '민수',
-      title: '안뇽',
-    },
-    {
-      writer: '지민',
-      title: '하이하이',
-    },
-  ]);
+  const [comments, setComments] = useState([]);
   const [searchType, setSearchType] = useState('writer');
   const [result, setResult] = useState([]);
 
@@ -30,12 +21,11 @@ export default function Ex1() {
   };
 
   const addComment = () => {
-    const newComment = {
-      writer,
-      title,
-    }; // 새로 추가되어야할 정보
+    let newComment = { writer, title };
 
-    setComments([...comments, newComment]); // 새 정보 추가
+    setComments([...comments, newComment]);
+
+    console.log(comments);
     setInputs({
       ...inputs,
       writer: '',
@@ -50,7 +40,7 @@ export default function Ex1() {
   const searchComment = () => {
     const searchResult = comments.filter((cmt) => {
       // cmt: {title: xxx, writer: xxx}
-
+      console.log(cmt[searchType]);
       if (!cmt[searchType].includes(search)) {
         // 검색 결과 없다면; null
         return null;
@@ -118,13 +108,17 @@ export default function Ex1() {
           </tr>
         </thead>
         <tbody>
-          {comments.map((cmt, idx) => (
-            <tr key={idx + 1}>
-              <td>{idx + 1}</td>
-              <td>{cmt.title}</td>
-              <td>{cmt.writer}</td>
-            </tr>
-          ))}
+          {comments.length === 0 ? (
+            <div>댓글이 없습니다</div>
+          ) : (
+            comments.map((cmt, idx) => (
+              <tr key={idx + 1}>
+                <td>{idx + 1}</td>
+                <td>{cmt.title}</td>
+                <td>{cmt.writer}</td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
 
