@@ -1,86 +1,125 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useReducer, useRef } from 'react';
 
+function reducer(state, action) {
+  console.log(state);
+  switch (action.isLogin) {
+    case 'idFalse':
+      return { ...state, msg: '회원정보가 없습니다.' };
+    case 'pwFalse':
+      return { ...state, msg: '비밀번호 오류!' };
+    case 'true':
+      return { success: 'true', msg: '로그인 성공~!' };
+    default:
+      return { success: 'false', msg: '' };
+  }
+}
 export default function Login(props) {
   const [input, setInput] = useState({
     id: '',
     password: '',
   });
-  const [loginInfo, setLoginInfo] = useState({
-    id: '',
-    password: '',
+
+  const [login, setLogin] = useReducer(reducer, {
+    success: 'false',
+    msg: '',
   });
-  const isHidden = useRef();
 
   const { id, password } = input;
+  const inputRef = useRef();
   const onChange = (e) => {
     const { value, name } = e.target;
     const newInput = { ...input, [name]: value };
     setInput(newInput);
   };
 
-  // 1. id 불일치, id, pw 불일치: 회원정보가 없습니다.
-  // 2. pw 불일치 : 비밀번호 오류!
-  // 3. 로그인 성공! : 메세지 띄우기 style hidden
+  const userId = props.userInfo.id;
+  const userPassword = props.userInfo.password;
 
-  const msg = {
-    text1: '회원정보가 없습니다',
-    
-    text2: '비밀번호 오류!',
-    text3: '로그인 성공!',
-  };
-  const { userId, userPassword } = props.userInfo;
+  const loginButton = () => {
+    const isId = input.id;
+    const isPw = input.password;
+    console.log(typeof isPw);
+    console.log(typeof userPassword);
 
-  const isLogin = () => {
-    loginInfo.id = id;
-    loginInfo.password = password;
-
-    console.log(loginInfo);
-    console.log(isHidden.current.style);
-    const divStyle = isHidden.current.style;
-
-    if (userId === id) {
+    let loginInfo = {};
+    if (userId === isId) {
+      if (password.trim().length === 0 || input === '') {
+        return inputRef.current.focus();
+      }
       {
-        userPassword === password
-          ? (divStyle.visibility = 'hidden')
-          : (divStyle.visibility = 'visible');
+        userPassword.toString() === isPw
+          ? (loginInfo = { isLogin: 'true' })
+          : (loginInfo = { isLogin: 'pwFalse' });
+      }
+
+      if (userPassword.toString() !== isPw) {
+        setInput({ ...input, password: '' });
       }
     } else {
-        return 
+      loginInfo = { isLogin: 'idFalse' };
+      setInput({
+        id: '',
+        password: '',
+      });
     }
+
+    setLogin(loginInfo);
+  };
+
+  const enterLogin = (e) => {
+    if (e.keyCode === 13) {
+      loginButton();
+    }
+  };
+
+  const logoutButton = () => {
+    setLogin({ isLogin: 'false' });
+
+    setInput({
+      id: '',
+      password: '',
+    });
   };
 
   return (
     <>
-      <div ref={isHidden}>
-        <label htmlFor="id" style={{ display: 'block' }}>
-          ID :
-          <input
-            type="text"
-            onChange={onChange}
-            value={id}
-            name="id"
-            style={{ marginLeft: '5px' }}
-          />
-        </label>
-        <label htmlFor="password" style={{ display: 'block' }}>
-          PW :
-          <input
-            type="password"
-            onChange={onChange}
-            value={password}
-            name="password"
-            style={{ marginLeft: '5px' }}
-          />
-        </label>
-      </div>
-      { ? (
-        <h2>{msg.text3}</h2>
+      {login.success === 'true' ? (
+        <div>
+          <h2>
+            {login.msg} 환영합니다 {userId} 님!
+          </h2>
+          <button onClick={logoutButton}>Logout</button>
+        </div>
       ) : (
-        <div>{msg.text1}</div>
+        <div>
+          <div>
+            <label htmlFor="id" style={{ display: 'block' }}>
+              ID :
+              <input
+                type="text"
+                onChange={onChange}
+                value={id}
+                name="id"
+                style={{ marginLeft: '5px' }}
+              />
+            </label>
+            <label htmlFor="password" style={{ display: 'block' }}>
+              PW :
+              <input
+                type="password"
+                onChange={onChange}
+                onKeyDown={enterLogin}
+                value={password}
+                name="password"
+                style={{ marginLeft: '5px' }}
+                ref={inputRef}
+              />
+            </label>
+          </div>
+          <p>{login.msg}</p>
+          <button onClick={loginButton}>Login</button>
+        </div>
       )}
-      <button onClick={isLogin} ref={isHidden}>
-        Login
-      </button>
     </>
   );
 }
