@@ -2,4 +2,14 @@
 @mixin box($size) {
   width: $size;
   height: $size;
+  border-radius: 50%;
+}
+
+@mixin bodyPosition($top, $left) {
+  top: $top;
+  left: $left;
+}
+
+@mixin moveTo($row, $column) {
+  transform: translate($row, $column) 3s ease-out infinite;
 }

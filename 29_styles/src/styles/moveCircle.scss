@@ -1,0 +1,18 @@
+@import './variables.scss';
+@import './utils.scss';
+
+.pinkOne {
+  @include moveTo(10deg);
+  @include box(50px);
+  background-color: $color-fifth;
+}
+.yellowOne {
+  @include moveTo(20deg);
+  @include box(50px);
+  background-color: $color-third;
+}
+.blueOne {
+  @include moveTo(30deg);
+  @include box(50px);
+  background-color: $color-fourth;
+}

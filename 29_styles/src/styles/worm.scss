@@ -1,0 +1,65 @@
+@import './variables.scss';
+@import './utils.scss';
+
+.larva {
+  position: absolute;
+}
+
+.head {
+  @include box(150px);
+  background-color: $color-fourth;
+  z-index: 4;
+  position: relative;
+  @include bodyPosition(10px, 5px);
+
+  .eye1 {
+    background-color: $color-fifth;
+    position: absolute;
+    @include bodyPosition(10px, 30px);
+    @include box(50px);
+
+    .eye2 {
+      background-color: $color-sixth;
+      position: absolute;
+      @include bodyPosition(5px, 0px);
+      @include box(30px);
+    }
+  }
+}
+
+.allbody {
+  position: relative;
+  bottom: 60px;
+  left: 60px;
+
+  .b1 {
+    background-color: $color-first;
+    position: absolute;
+    z-index: 6;
+    @include box(150px);
+  }
+
+  .b2 {
+    background-color: $color-seventh;
+    position: absolute;
+    @include box(150px);
+    @include bodyPosition(5px, 45px);
+    z-index: 7;
+  }
+
+  .b3 {
+    background-color: $color-second;
+    position: absolute;
+    @include box(150px);
+    @include bodyPosition(30px, 100px);
+    z-index: 8;
+  }
+
+  .b4 {
+    background-color: $color-eighth;
+    position: absolute;
+    @include box(150px);
+    @include bodyPosition(40px, 180px);
+    z-index: 10;
+  }
+}
