@@ -1,0 +1,54 @@
+@import './variables.scss';
+@import './utils.scss';
+
+// SASS styling
+
+// 중첩: 부모 자식 표현 가능
+.container {
+  display: flex;
+
+  .box {
+    // 믹스인 호출
+    @include box(300px);
+    // width: 100px;
+    // height: 100px;
+    border: 2px solid black;
+
+    // &: 부모 선택자 참조해서 치환
+    &.red {
+      // .box.red
+      background-color: $color-first;
+    }
+
+    &.orange {
+      background-color: orange;
+    }
+
+    &:hover {
+      transform: translateY(-20px);
+      // 연산가능
+      transition: transform $animation-duration * 2;
+    }
+  }
+
+  .yellow {
+    background-color: yellow;
+  }
+}
+
+@media (max-width: #{$breakpoint-sm}) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+.btn {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+.btn-primary {
+  @extend .btn;
+  background-color: $color-third;
+}
