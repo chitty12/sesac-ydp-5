@@ -2,27 +2,27 @@
 @import './utils.scss';
 
 .larva {
-  position: absolute;
-}
-
-.head {
-  @include box(150px);
-  background-color: $color-fourth;
-  z-index: 4;
   position: relative;
-  @include bodyPosition(10px, 5px);
 
-  .eye1 {
-    background-color: $color-fifth;
-    position: absolute;
-    @include bodyPosition(10px, 30px);
-    @include box(50px);
+  .head {
+    @include box(150px);
+    background-color: $color-fourth;
+    z-index: 4;
+    position: relative;
+    @include bodyPosition(10px, 5px);
 
-    .eye2 {
-      background-color: $color-sixth;
+    .eye1 {
+      background-color: $color-fifth;
       position: absolute;
-      @include bodyPosition(5px, 0px);
-      @include box(30px);
+      @include bodyPosition(10px, 30px);
+      @include box(50px);
+
+      .eye2 {
+        background-color: $color-sixth;
+        position: absolute;
+        @include bodyPosition(5px, 0px);
+        @include box(30px);
+      }
     }
   }
 }

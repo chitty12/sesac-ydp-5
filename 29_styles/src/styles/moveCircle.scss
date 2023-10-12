@@ -1,18 +1,24 @@
 @import './variables.scss';
 @import './utils.scss';
 
-.pinkOne {
-  @include moveTo(10deg);
-  @include box(50px);
-  background-color: $color-fifth;
-}
-.yellowOne {
-  @include moveTo(20deg);
-  @include box(50px);
-  background-color: $color-third;
-}
-.blueOne {
-  @include moveTo(30deg);
-  @include box(50px);
-  background-color: $color-fourth;
+.containerCircle {
+  position: relative;
+
+  .circle {
+    @include box(50px);
+
+    &.pinkOne {
+      background-color: $color-fifth;
+      @include clockWise(20px);
+    }
+    &.yellowOne {
+      @include clockWise(80px);
+
+      background-color: $color-third;
+    }
+    &.blueOne {
+      @include clockWise(160px);
+      background-color: $color-fourth;
+    }
+  }
 }

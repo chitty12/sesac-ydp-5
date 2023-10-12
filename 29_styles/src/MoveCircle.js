@@ -3,10 +3,10 @@ import './styles/moveCircle.scss';
 
 export default function MoveCircle() {
   return (
-    <div>
-      <div className="pinkOne"></div>
-      <div className="yellowOne"></div>
-      <div className="blueOne"></div>
+    <div className="containerCircle">
+      <div className="circle pinkOne"></div>
+      <div className="circle yellowOne"></div>
+      <div className="circle blueOne"></div>
     </div>
   );
 }

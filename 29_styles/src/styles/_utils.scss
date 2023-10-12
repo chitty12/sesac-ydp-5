@@ -10,6 +10,23 @@
   left: $left;
 }
 
-@mixin moveTo($row, $column) {
-  transform: translate($row, $column) 3s ease-out infinite;
+@mixin clockWise($px) {
+  animation: moveClockWise#{$px} infinite 4s;
+  @keyframes moveClockWise#{$px} {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate($px, 0px);
+    }
+    50% {
+      transform: translate($px, $px);
+    }
+    75% {
+      transform: translate(0, $px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
 }

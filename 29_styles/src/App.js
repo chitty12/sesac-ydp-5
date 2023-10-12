@@ -21,6 +21,7 @@ function App() {
       <Worm />
       <hr></hr>
 
+      <h2>리액트 애니메이션</h2>
       <MoveCircle />
     </div>
   );
