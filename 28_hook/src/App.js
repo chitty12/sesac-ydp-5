@@ -3,6 +3,8 @@ import UseCallbackEx from './components/UseCallbackEx';
 import UseCallbackEx2 from './components/UseCallbackEx2';
 import UseMemoEx from './components/UseMemoEx';
 import UseReducer from './components/UseReducer';
+import Form from './components/react-hook-form/Form';
+import Form_ex from './components/react-hook-form/Form_ex';
 import useTitle from './hook/useTitle';
 
 function App() {
@@ -19,6 +21,10 @@ function App() {
       <UseReducer />
       <hr></hr>
       <Faq />
+      <hr></hr>
+      <Form />
+      <hr></hr>
+      <Form_ex />
     </div>
   );
 }
