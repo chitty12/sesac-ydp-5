@@ -56,8 +56,12 @@ export default function PostList() {
   ];
 
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h1>Post List</h1>
+    <div
+      style={{
+        width: '80%',
+        margin: '0 auto',
+      }}
+    >
       <PostItem post={fakePosts} />
     </div>
   );
