@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './styles/Box.css';
 
 function App() {
-  const number = useSelector((state) => state.number);
+  const number = useSelector((state) => state.counter.number);
 
   return (
     <div className="App">
@@ -43,13 +42,24 @@ const Box3 = () => {
 
 const Box4 = () => {
   const number = useSelector((state) => state.number);
+  const isVisible = useSelector((state) => state.isVisible);
   const dispatch = useDispatch();
+
+  // const [toggle, setToggle] = useState(isVisible);
+
+  // const toggled = () => {
+  //   setToggle((prev) => !prev);
+  // };
 
   return (
     <div className="Box">
       <h2>Box4: {number} </h2>
+      <h2>isVisible 값은: {isVisible ? '참' : '거짓'} 이다. </h2>
       <button onClick={() => dispatch({ type: 'PLUS' })}>Plus</button>
       <button onClick={() => dispatch({ type: 'MINUS' })}>minus</button>
+
+      {/* 퀴즈. change 버튼 클릭하면 참/거짓 toggle 되도록 */}
+      <button onClick={() => dispatch({ type: 'CHANGE' })}>change</button>
     </div>
   );
 };
