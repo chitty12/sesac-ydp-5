@@ -1,8 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 
-function App_ex(store) {
-  console.log(store.store);
+function App_ex() {
   const [input, setInput] = useState('');
 
   const number = useSelector((state) => state.balance.number);

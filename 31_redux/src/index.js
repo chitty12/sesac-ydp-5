@@ -14,7 +14,7 @@ const store = configureStore({ reducer: rootReducer }, composeWithDevTools());
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App_ex store={store} />
+      <App_ex />
     </Provider>
   </React.StrictMode>
 );
