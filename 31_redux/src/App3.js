@@ -59,7 +59,7 @@ const Box4 = () => {
       <button onClick={() => dispatch({ type: 'MINUS' })}>minus</button>
 
       {/* 퀴즈. change 버튼 클릭하면 참/거짓 toggle 되도록 */}
-      <button onClick={() => dispatch({ type: 'CHANGE' })}>change</button>
+      {/* <button onClick={() => dispatch({ type: 'CHANGE' })}>change</button> */}
     </div>
   );
 };
