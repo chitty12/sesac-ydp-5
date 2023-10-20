@@ -48,3 +48,108 @@ val = 1000;
 let val2;
 val2 = false;
 val2 = '바이';
+
+///////////////////////////////////////////////
+// 1. interface
+interface Student {
+  name: string;
+  isPassed: boolean;
+}
+
+const student1: Student = {
+  name: 'taeyoung',
+  isPassed: true,
+  // addr: 'seoul', student에 정의되어 있지 않은 attribute라서 error
+};
+const student2: object = {
+  name: 'taeyoung',
+  isPassed: true,
+  addr: 'seoul',
+};
+
+// interface 상속
+// A+, A, B, C, F
+// type Score = 'A+' | 'A' | 'B' | 'C' | 'F';
+
+enum Score {
+  Aplus = 'A+',
+  A = 'A',
+  B = 'B',
+  C = 'C',
+  F = 'F',
+}
+
+interface BaseballClub extends Student {
+  position: string;
+  height: number;
+  backNumber?: number;
+  // ?: 있어도 되고 없어도 되는 key
+  [grade: number]: Score;
+}
+
+const otani: BaseballClub = {
+  name: 'otani',
+  isPassed: true,
+  position: 'pitcher',
+  height: 193,
+  // 1: 'A+',
+  1: Score.A,
+  // 2: 'NP' //error
+};
+
+console.log(otani);
+
+otani['height'] = 200;
+
+otani.position = '투수';
+// otani.backNumber = 15; // error: backNumber readonly
+console.log(otani);
+
+// type vs enum
+type Bp1 = 500 | 700 | 1000;
+enum Bp2 {
+  SM = 500,
+  MD = 700,
+  LG = 1000,
+}
+// const width1: Bp1 = 550
+// const width1: Bp2 = Bp2.SM
+
+// 교차타입: 두개 이상의 타입을 합치는 것
+interface Toy {
+  name: string;
+  start(): void;
+}
+interface Car {
+  name: string;
+  color: string;
+  price: number;
+  start(): void;
+}
+
+type ToyCar = Toy & Car;
+const toyCar: ToyCar = {
+  name: 'tayo',
+  start() {
+    console.log('출발~~');
+  },
+  color: 'blue',
+  price: 5000,
+};
+
+// 2. type
+type Gender = 'F' | 'M';
+
+type Person = {
+  name: string;
+  age?: number;
+  like?: string[];
+  gender: string;
+};
+
+let daniel: Person = {
+  name: 'daniel',
+  gender: 'F',
+  age: 20,
+  like: ['minji', 'hani'],
+};
