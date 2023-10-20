@@ -29,3 +29,21 @@ let heroGame_B: Game = {
   category: '롤플레잉',
   platform: '모바일',
 };
+
+////////////////////////////////////////////////
+
+function sum1(a: number, b: number): void {
+  console.log(a + b);
+}
+
+sum1(5, 11);
+
+function sum2(...arr: number[]): number {
+  let total = 0;
+  for (let value of arr) {
+    total += value;
+  }
+  return total;
+}
+
+console.log(sum2(1, 2, 3, 4, 10));
