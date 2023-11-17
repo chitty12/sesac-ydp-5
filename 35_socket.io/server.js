@@ -96,3 +96,5 @@ io.on('connection', (socket) => {
 server.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });
+
+https://polydactyl-cello-2db.notion.site/Kim-Sehwa-c4920e2528ae4e7bb40869f320fc859d
