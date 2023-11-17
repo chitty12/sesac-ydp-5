@@ -62,9 +62,24 @@ io.on('connection', (socket) => {
   // [실습4] 채팅창 메세지 전송 step1
   // send 이벤트 받아서 모두에게 newMessage 이벤트로 {닉네임, 입력창내용} 데이터를 전송
   socket.on('sendMsg', (data) => {
-    io.emit('newMessage', { nick: data.nick, msg: data.msg });
+    // [실습5] 디엠
+    console.log(data.toNick);
+    const toNick = data.toNick;
+    if (!toNick) {
+      io.emit('newMessage', { nick: data.nick, msg: data.msg });
+    } else {
+      io.to(toNick).emit('newMessage', {
+        nick: data.myNick,
+        msg: data.msg,
+        dm: '(귓속말)',
+      });
+      socket.emit('newMessage', {
+        nick: data.myNick,
+        msg: data.msg,
+        dm: '(귓속말)',
+      });
+    }
   });
-
   // socket.id: 소켓 고유 아이디 (브라우저 탭 단위)
   // [실습1]
   socket.on('hello', (data) => {
